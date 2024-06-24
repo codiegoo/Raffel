@@ -1,0 +1,504 @@
+{
+  "boletos": [
+    {
+      "id": 1,
+      "numero": 1,
+      "disponible": false
+    },
+    {
+      "id": 2,
+      "numero": 2,
+      "disponible": false
+    },
+    {
+      "id": 3,
+      "numero": 3,
+      "disponible": false
+    },
+    {
+      "id": 4,
+      "numero": 4,
+      "disponible": false
+    },
+    {
+      "id": 5,
+      "numero": 5,
+      "disponible": false
+    },
+    {
+      "id": 6,
+      "numero": 6,
+      "disponible": false
+    },
+    {
+      "id": 7,
+      "numero": 7,
+      "disponible": true
+    },
+    {
+      "id": 8,
+      "numero": 8,
+      "disponible": true
+    },
+    {
+      "id": 9,
+      "numero": 9,
+      "disponible": true
+    },
+    {
+      "id": 10,
+      "numero": 10,
+      "disponible": true
+    },
+    {
+      "id": 11,
+      "numero": 11,
+      "disponible": true
+    },
+    {
+      "id": 12,
+      "numero": 12,
+      "disponible": true
+    },
+    {
+      "id": 13,
+      "numero": 13,
+      "disponible": true
+    },
+    {
+      "id": 14,
+      "numero": 14,
+      "disponible": true
+    },
+    {
+      "id": 15,
+      "numero": 15,
+      "disponible": true
+    },
+    {
+      "id": 16,
+      "numero": 16,
+      "disponible": true
+    },
+    {
+      "id": 17,
+      "numero": 17,
+      "disponible": true
+    },
+    {
+      "id": 18,
+      "numero": 18,
+      "disponible": true
+    },
+    {
+      "id": 19,
+      "numero": 19,
+      "disponible": true
+    },
+    {
+      "id": 20,
+      "numero": 20,
+      "disponible": true
+    },
+    {
+      "id": 21,
+      "numero": 21,
+      "disponible": true
+    },
+    {
+      "id": 22,
+      "numero": 22,
+      "disponible": true
+    },
+    {
+      "id": 23,
+      "numero": 23,
+      "disponible": true
+    },
+    {
+      "id": 24,
+      "numero": 24,
+      "disponible": true
+    },
+    {
+      "id": 25,
+      "numero": 25,
+      "disponible": true
+    },
+    {
+      "id": 26,
+      "numero": 26,
+      "disponible": true
+    },
+    {
+      "id": 27,
+      "numero": 27,
+      "disponible": true
+    },
+    {
+      "id": 28,
+      "numero": 28,
+      "disponible": true
+    },
+    {
+      "id": 29,
+      "numero": 29,
+      "disponible": true
+    },
+    {
+      "id": 30,
+      "numero": 30,
+      "disponible": true
+    },
+    {
+      "id": 31,
+      "numero": 31,
+      "disponible": true
+    },
+    {
+      "id": 32,
+      "numero": 32,
+      "disponible": true
+    },
+    {
+      "id": 33,
+      "numero": 33,
+      "disponible": true
+    },
+    {
+      "id": 34,
+      "numero": 34,
+      "disponible": true
+    },
+    {
+      "id": 35,
+      "numero": 35,
+      "disponible": true
+    },
+    {
+      "id": 36,
+      "numero": 36,
+      "disponible": true
+    },
+    {
+      "id": 37,
+      "numero": 37,
+      "disponible": true
+    },
+    {
+      "id": 38,
+      "numero": 38,
+      "disponible": true
+    },
+    {
+      "id": 39,
+      "numero": 39,
+      "disponible": true
+    },
+    {
+      "id": 40,
+      "numero": 40,
+      "disponible": true
+    },
+    {
+      "id": 41,
+      "numero": 41,
+      "disponible": true
+    },
+    {
+      "id": 42,
+      "numero": 42,
+      "disponible": true
+    },
+    {
+      "id": 43,
+      "numero": 43,
+      "disponible": true
+    },
+    {
+      "id": 44,
+      "numero": 44,
+      "disponible": true
+    },
+    {
+      "id": 45,
+      "numero": 45,
+      "disponible": true
+    },
+    {
+      "id": 46,
+      "numero": 46,
+      "disponible": true
+    },
+    {
+      "id": 47,
+      "numero": 47,
+      "disponible": true
+    },
+    {
+      "id": 48,
+      "numero": 48,
+      "disponible": true
+    },
+    {
+      "id": 49,
+      "numero": 49,
+      "disponible": true
+    },
+    {
+      "id": 50,
+      "numero": 50,
+      "disponible": true
+    },
+    {
+      "id": 51,
+      "numero": 51,
+      "disponible": true
+    },
+    {
+      "id": 52,
+      "numero": 52,
+      "disponible": true
+    },
+    {
+      "id": 53,
+      "numero": 53,
+      "disponible": true
+    },
+    {
+      "id": 54,
+      "numero": 54,
+      "disponible": true
+    },
+    {
+      "id": 55,
+      "numero": 55,
+      "disponible": true
+    },
+    {
+      "id": 56,
+      "numero": 56,
+      "disponible": true
+    },
+    {
+      "id": 57,
+      "numero": 57,
+      "disponible": true
+    },
+    {
+      "id": 58,
+      "numero": 58,
+      "disponible": true
+    },
+    {
+      "id": 59,
+      "numero": 59,
+      "disponible": true
+    },
+    {
+      "id": 60,
+      "numero": 60,
+      "disponible": true
+    },
+    {
+      "id": 61,
+      "numero": 61,
+      "disponible": true
+    },
+    {
+      "id": 62,
+      "numero": 62,
+      "disponible": true
+    },
+    {
+      "id": 63,
+      "numero": 63,
+      "disponible": true
+    },
+    {
+      "id": 64,
+      "numero": 64,
+      "disponible": true
+    },
+    {
+      "id": 65,
+      "numero": 65,
+      "disponible": true
+    },
+    {
+      "id": 66,
+      "numero": 66,
+      "disponible": true
+    },
+    {
+      "id": 67,
+      "numero": 67,
+      "disponible": true
+    },
+    {
+      "id": 68,
+      "numero": 68,
+      "disponible": true
+    },
+    {
+      "id": 69,
+      "numero": 69,
+      "disponible": true
+    },
+    {
+      "id": 70,
+      "numero": 70,
+      "disponible": true
+    },
+    {
+      "id": 71,
+      "numero": 71,
+      "disponible": true
+    },
+    {
+      "id": 72,
+      "numero": 72,
+      "disponible": true
+    },
+    {
+      "id": 73,
+      "numero": 73,
+      "disponible": true
+    },
+    {
+      "id": 74,
+      "numero": 74,
+      "disponible": true
+    },
+    {
+      "id": 75,
+      "numero": 75,
+      "disponible": true
+    },
+    {
+      "id": 76,
+      "numero": 76,
+      "disponible": true
+    },
+    {
+      "id": 77,
+      "numero": 77,
+      "disponible": true
+    },
+    {
+      "id": 78,
+      "numero": 78,
+      "disponible": true
+    },
+    {
+      "id": 79,
+      "numero": 79,
+      "disponible": true
+    },
+    {
+      "id": 80,
+      "numero": 80,
+      "disponible": true
+    },
+    {
+      "id": 81,
+      "numero": 81,
+      "disponible": true
+    },
+    {
+      "id": 82,
+      "numero": 82,
+      "disponible": true
+    },
+    {
+      "id": 83,
+      "numero": 83,
+      "disponible": true
+    },
+    {
+      "id": 84,
+      "numero": 84,
+      "disponible": true
+    },
+    {
+      "id": 85,
+      "numero": 85,
+      "disponible": true
+    },
+    {
+      "id": 86,
+      "numero": 86,
+      "disponible": true
+    },
+    {
+      "id": 87,
+      "numero": 87,
+      "disponible": true
+    },
+    {
+      "id": 88,
+      "numero": 88,
+      "disponible": true
+    },
+    {
+      "id": 89,
+      "numero": 89,
+      "disponible": true
+    },
+    {
+      "id": 90,
+      "numero": 90,
+      "disponible": true
+    },
+    {
+      "id": 91,
+      "numero": 91,
+      "disponible": true
+    },
+    {
+      "id": 92,
+      "numero": 92,
+      "disponible": true
+    },
+    {
+      "id": 93,
+      "numero": 93,
+      "disponible": true
+    },
+    {
+      "id": 94,
+      "numero": 94,
+      "disponible": true
+    },
+    {
+      "id": 95,
+      "numero": 95,
+      "disponible": true
+    },
+    {
+      "id": 96,
+      "numero": 96,
+      "disponible": true
+    },
+    {
+      "id": 97,
+      "numero": 97,
+      "disponible": true
+    },
+    {
+      "id": 98,
+      "numero": 98,
+      "disponible": true
+    },
+    {
+      "id": 99,
+      "numero": 99,
+      "disponible": true
+    },
+    {
+      "id": 100,
+      "numero": 100,
+      "disponible": true
+    }
+  ]
+}
