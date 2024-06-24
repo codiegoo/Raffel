@@ -499,6 +499,11 @@
       "id": 100,
       "numero": 100,
       "disponible": true
+    },
+    {
+      "id": 101,
+      "numero": 100,
+      "disponible": true
     }
   ]
 }
