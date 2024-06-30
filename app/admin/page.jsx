@@ -1,22 +1,47 @@
 'use client'
-
 import { useEffect, useState } from 'react';
+import './admin.sass'
+import Login from '@/components/Login/Login';
 
-export default function AdminPanel() {
+export default function AdminPanelContent() {
   const [boletos, setBoletos] = useState([]);
   const [boletosSeleccionados, setBoletosSeleccionados] = useState([]);
+  const [busqueda, setBusqueda] = useState('');
+  
 
+
+
+  const handleBusquedaChange = (event) => {
+    const valorBusqueda = event.target.value;
+    setBusqueda(valorBusqueda);
+  };  
   
   // Función para manejar la selección de boletos
   const handleSeleccionarBoleto = (numeroBoleto) => {
-    // Verificar si el boleto ya está seleccionado
+    // Verificar si el boleto ya está seleccionado  
     if (boletosSeleccionados.includes(numeroBoleto)) {
       // Si ya está seleccionado, quitarlo de los boletos seleccionados
-      const nuevosBoletosSeleccionados = boletosSeleccionados.filter((boleto) => boleto !== numeroBoleto);
+      const nuevosBoletosSeleccionados = boletosSeleccionados.filter(
+        (boleto) => boleto !== numeroBoleto
+      );
       setBoletosSeleccionados(nuevosBoletosSeleccionados);
     } else {
-      // Si no está seleccionado, añadirlo a los boletos seleccionados
-      setBoletosSeleccionados([...boletosSeleccionados, numeroBoleto]);
+      // Buscar el boleto por número
+      const boletoEncontrado = boletos.find(
+        (boleto) => boleto.numero === parseInt(numeroBoleto)
+      );
+
+      if (boletoEncontrado) {
+        // Verificar disponibilidad
+        if (!boletoEncontrado.disponible) {
+          alert('El boleto ya ha sido vendido.');
+        } else {
+          // Si está disponible, añadirlo a los boletos seleccionados
+          setBoletosSeleccionados([...boletosSeleccionados, numeroBoleto]);
+        }
+      } else {
+        alert('Boleto no encontrado.');
+      }
     }
   };
 
@@ -79,48 +104,88 @@ export default function AdminPanel() {
   
 
   return (
-    <>
-      <div className="container">
-        <h4>{boletosSeleccionados.length} 🎟️ seleccionados!</h4>
-        <div className="row row-cols-2 row-cols-md-4 row-cols-lg-6">
-          {/* Mostrar solo los boletos seleccionados */}
-          {boletosSeleccionados.map((numeroBoleto, index) => (
-            <div key={index} className="col mb-4">
-              <div
-                className="card h-100"
-                style={{ cursor: 'pointer' }}
-                onClick={() => handleSeleccionarBoleto(numeroBoleto)}
-              >
-                <div className="card-body text-center">
-                  <h5 className="card-title">🎟️ {numeroBoleto}</h5>
-                </div>
+    <div className="adminPanelContain">
+      <Login/>
+      <div className="boletosAdminContain">
+
+        <div className="searchContain input-group flex-nowrap">
+          <div className="searchInner">
+            <input type="text" className="form-control-m" placeholder="Busca tu 🎟️ ..." aria-label="  Busca tu boleto" aria-describedby="addon-wrapping" value={busqueda} onChange={handleBusquedaChange}></input>
+            <span className="input-group-text rounded-0" id="addon-wrapping">🔎</span>
+          </div>
+          
+          {/* Contenedor para mostrar el boleto encontrado */}
+          {busqueda && (
+            <div className="boletosCoinciden">
+              <div className="row row-cols-2 row-cols-md-4 row-cols-lg-6 px-3 ">
+                {boletos
+                  .filter((boleto) => 
+                    boleto.numero.toString().includes(busqueda) && // Búsqueda exacta
+                    boleto.disponible && // Solo boletos disponibles
+                    !boletosSeleccionados.includes(boleto.numero) // No mostrar los seleccionados
+                  )
+                  .map((boleto) => (
+                    <div
+                      key={boleto.id}
+                      className="col mb-2 px-1"
+                      style={{ cursor: 'pointer' }}
+                      onClick={() => handleSeleccionarBoleto(boleto.numero)}
+                    >
+                      <div className="card h-100">
+                        <div className="card-body text-center">
+                          <h5 className="card-title">🎟️ {boleto.numero}</h5>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
               </div>
             </div>
-          ))}
+          )}
         </div>
-        <button className="btn btn-primary w-25" onClick={handleDesactivarBoletos}>
-          Desactivar
-        </button>
-      </div>
-      <div className="container mt-4">
-        <h4>Lista de boletos</h4>
-        <div className="row row-cols-2 row-cols-md-4 row-cols-lg-6">
-          {/* Iterar sobre los boletos y mostrar solo los disponibles */}
-          {boletos.map((boleto) => (
-            <div key={boleto.id} className="col mb-4">
-              <div
-                className="card h-100"
-                style={{ cursor: 'pointer' }}
-                onClick={() => boleto.disponible && handleSeleccionarBoleto(boleto.numero)}
-              >
-                <div className="card-body text-center">
-                  <h5 className="card-title">{boleto.disponible ? '🎟️ ' + boleto.numero : boleto.numero}</h5>
+
+
+        <div className="selectTicketsContain container">
+          <h4>{boletosSeleccionados.length} 🎟️ seleccionados!</h4>
+          <div className="row row-cols-2 row-cols-md-4 row-cols-lg-6">
+            {/* Mostrar solo los boletos seleccionados */}
+            {boletosSeleccionados.map((numeroBoleto, index) => (
+              <div key={index} className="col mb-2 px-1">
+                <div
+                  className="card h-100"
+                  style={{ cursor: 'pointer' }}
+                  onClick={() => handleSeleccionarBoleto(numeroBoleto)}
+                >
+                  <div className="card-body text-center">
+                    <h5 className="card-title">🎟️ {numeroBoleto}</h5>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
+          <button className="btnDesactivarBoletos" onClick={handleDesactivarBoletos}>
+            Desactivar
+          </button>
+        </div>
+        <div className="boletosAdminInner container mt-4">
+          <h4>Lista de boletos</h4>
+          <div className="boletosListInner row row-cols-2 row-cols-md-4 row-cols-lg-6">
+            {/* Iterar sobre los boletos y mostrar solo los disponibles */}
+            {boletos.map((boleto) => (
+              <div key={boleto.id} className="col mb-2 px-1">
+                <div
+                  className="card h-100"
+                  style={{ cursor: 'pointer' }}
+                  onClick={() => boleto.disponible && handleSeleccionarBoleto(boleto.numero)}
+                >
+                  <div className="card-body text-center">
+                    <h5 className="card-title">{boleto.disponible ? '🎟️ ' + boleto.numero : boleto.numero}</h5>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }

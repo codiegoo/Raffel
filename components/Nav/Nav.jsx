@@ -41,16 +41,16 @@
             <div className="navbar-nav order-lg-2">
               <ul className="navbar-nav flex-row">
                 <li className="nav-item mx-4">
-                  <Link href="#inicioContain" className="nav-link text-white">Inicio</Link> 
+                  <Link href="#inicioContain" className="nav-link text-white fw-bold fs-5">Inicio</Link> 
                 </li>
                 <li className="nav-item mx-4">
-                  <Link href="#boletosContain" className="nav-link text-white">Boletos</Link> 
+                  <Link href="#boletosContain" className="nav-link text-white fw-bold fs-5">Boletos</Link> 
                 </li>
                 <li className="nav-item mx-4">
-                  <Link href="#contactoContain" className="nav-link text-white">Contacto</Link> 
+                  <Link href="#contactoContain" className="nav-link text-white fw-bold fs-5">Contacto</Link> 
                 </li>
                 <li className="nav-item mx-4">
-                  <Link href="#preguntasContain" className="nav-link text-white">Preguntas</Link> 
+                  <Link href="#preguntasContain" className="nav-link text-white fw-bold fs-5">Preguntas</Link> 
                 </li>
               </ul>
             </div>
