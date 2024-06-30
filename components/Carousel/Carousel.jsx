@@ -1,18 +1,19 @@
 import Link from "next/link";
 import './carousel.sass';
+import Image from "next/image";
 
 export default function Carousel() {
   return (
     <div id="carouselExampleInterval" className="carousel slide mt-5" data-bs-ride="carousel">
       <div className="carousel-inner">
         <div className="carousel-item active" data-bs-interval="4000">
-          <img src="/images/auto.png" className="d-block w-100" style={{ height: 'auto', objectFit: 'contain' }} alt="First slide" />
+          <Image width={1920} height={1080} src="/images/auto.png" className="d-block w-100" style={{ height: 'auto', objectFit: 'contain' }} alt="First slide" />
         </div>
         <div className="carousel-item" data-bs-interval="4000">
-          <img src="/images/auto1.jpg" className="d-block w-100" style={{ height: 'auto', objectFit: 'contain' }} alt="Second slide" />
+          <Image width={1920} height={1080} src="/images/auto1.jpg" className="d-block w-100" style={{ height: 'auto', objectFit: 'contain' }} alt="Second slide" />
         </div>
         <div className="carousel-item" data-bs-interval="4000">
-          <img src="/images/auto2.jpg" className="d-block w-100" style={{ height: 'auto', objectFit: 'contain' }} alt="Third slide" />
+          <Image width={1920} height={1080} src="/images/auto2.jpg" className="d-block w-100" style={{ height: 'auto', objectFit: 'contain' }} alt="Third slide" />
         </div>
       </div>
       <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">

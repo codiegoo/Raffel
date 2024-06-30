@@ -28,7 +28,7 @@
       <nav className="navbar bg-dark fixed-top">
         <div className="container-fluid d-flex justify-content-between align-items-center">
           <div className=" d-flex flex-row align-items-center">
-            <Image src="/images/logo.png" width={50} height={50}/>
+            <Image src="/images/logo.png" width={50} height={50} alt="Logo de pagina web de sorteos jp"/>
             <div>
               <h2 className="m-0 fw-bold text-white">Sorteos JP</h2>
             </div>

@@ -27,7 +27,7 @@ const Form = React.forwardRef(({ boletosSeleccionados }, ref) => {
   };
 
   return (
-    <form ref={ref} className="formContain" onSubmit={handleSubmit}>
+    <form ref={ref} className="formContain" displayName="formUserData" onSubmit={handleSubmit}>
       <div className="inputContain">
         <label htmlFor="userName">Nombre completo:</label>
         <input type="text" id="userName" name="userName" placeholder="nombre(s), primer apellido, segundo apellido" />
@@ -42,8 +42,8 @@ const Form = React.forwardRef(({ boletosSeleccionados }, ref) => {
         <h6>Tus boletos:</h6>
         <div className="mb-2 row row-cols-2 row-cols-md-4 row-cols-lg-4">
           {/* Mostrar los boletos seleccionados */}
-          {boletosSeleccionados.map((numeroBoleto, index) => (
-            <div key={index} className="col mb-2 px-1">
+          {boletosSeleccionados.map((numeroBoleto) => (
+            <div key={numeroBoleto} className="col mb-2 px-1">
               <div className="card h-100 bg-dark">
                 <div className="card-body text-center">
                   <h5 className="card-title text-white">🎟️ {numeroBoleto}</h5>
@@ -58,5 +58,7 @@ const Form = React.forwardRef(({ boletosSeleccionados }, ref) => {
     </form>
   );
 });
+
+Form.displayName = 'Form';
 
 export default Form;
