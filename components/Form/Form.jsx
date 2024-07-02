@@ -35,12 +35,12 @@ const Form = React.forwardRef(({ boletosSeleccionados }, ref) => {
 
       <div className="inputContain">
         <label htmlFor="userNumber">Whatsapp:</label>
-        <input type="text" id="userNumber" name="userNumber" placeholder="Ejemplo: 6871020304" />
+        <input type="number" id="userNumber" name="userNumber" placeholder="Ejemplo: 6871020304" />
       </div>
 
       <div className="boletosClienteContain">
         <h6>Tus boletos:</h6>
-        <div className="mb-2 row row-cols-2 row-cols-md-4 row-cols-lg-4">
+        <div className="boletosListGrid mb-2 row row-cols-4 row-cols-md-4 row-cols-lg-4">
           {/* Mostrar los boletos seleccionados */}
           {boletosSeleccionados.map((numeroBoleto) => (
             <div key={numeroBoleto} className="col mb-2 px-1">

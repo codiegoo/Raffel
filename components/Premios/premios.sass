@@ -7,7 +7,7 @@
   display: flex
   flex-direction: column
   align-items: center
-  background-color: yellow
+  background: #ffde01ff
   .animationText
     display: flex
     justify-content: center
@@ -21,24 +21,25 @@
     span
       display: inline-block
       white-space: nowrap 
-      animation: animateLeft 25 s linear infinite
-      margin: 0 2rem
+      animation: animateLeft 15s linear infinite
+      margin: 0 2%
       width: 30%
   .txtPremiosContain
     width: 100%
+    padding: 0 4%
     display: flex
     flex-direction: column
     text-align: center
-    gap: 1rem
+    gap: 1%
     background: #00A82A
     .txtPremio
       background: #191919
-      margin: 5rem 2rem
+      margin: 4% 1%
       border-radius: 1rem
       color: #fff
 
 @keyframes animateLeft
   from
-    transform: translateX(100%)
+    transform: translateX(320%)
   to
-    transform: translateX(-100%)
+    transform: translateX(-300%)

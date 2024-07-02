@@ -47,7 +47,7 @@ export async function POST(request) {
     boletosData.boletos.forEach((boleto) => {
       if (boletosSeleccionados.includes(boleto.numero)) {
         if (!boleto.disponible) {
-          boleto.numero = 'Comprado ✅'; // Cambia el número por el texto cuando no está disponible
+          boleto.numero = 'Comprado'; // Cambia el número por el texto cuando no está disponible
         }
         boleto.disponible = false; // Marca como no disponible
       }

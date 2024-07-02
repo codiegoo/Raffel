@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import './admin.sass'
 import Login from '@/components/Login/Login';
+import Sorteo from '@/components/Sorteo/Sorteo';
 
 export default function AdminPanelContent() {
   const [boletos, setBoletos] = useState([]);
@@ -59,7 +60,7 @@ export default function AdminPanelContent() {
         // Mapea los boletos para cambiar el número por el texto cuando no está disponible
         const boletosActualizados = data.boletos.map(boleto => ({
           ...boleto,
-          numero: boleto.disponible ? boleto.numero : 'Comprado ✅'
+          numero: boleto.disponible ? boleto.numero : 'Comprado'
         }));
         setBoletos(boletosActualizados); // Establece los boletos actualizados en el estado
       })
@@ -117,7 +118,7 @@ export default function AdminPanelContent() {
           {/* Contenedor para mostrar el boleto encontrado */}
           {busqueda && (
             <div className="boletosCoinciden">
-              <div className="row row-cols-2 row-cols-md-4 row-cols-lg-6 px-3 ">
+              <div className="row row-cols-4 row-cols-md-4 row-cols-lg-6 px-3 ">
                 {boletos
                   .filter((boleto) => 
                     boleto.numero.toString().includes(busqueda) && // Búsqueda exacta
@@ -146,7 +147,7 @@ export default function AdminPanelContent() {
 
         <div className="selectTicketsContain container">
           <h4>{boletosSeleccionados.length} 🎟️ seleccionados!</h4>
-          <div className="row row-cols-2 row-cols-md-4 row-cols-lg-6">
+          <div className="row row-cols-4 row-cols-md-4 row-cols-lg-6">
             {/* Mostrar solo los boletos seleccionados */}
             {boletosSeleccionados.map((numeroBoleto, index) => (
               <div key={index} className="col mb-2 px-1">
@@ -168,7 +169,7 @@ export default function AdminPanelContent() {
         </div>
         <div className="boletosAdminInner container mt-4">
           <h4>Lista de boletos</h4>
-          <div className="boletosListInner row row-cols-2 row-cols-md-4 row-cols-lg-6">
+          <div className="boletosListInner row row-cols-4 row-cols-md-4 row-cols-lg-6">
             {/* Iterar sobre los boletos y mostrar solo los disponibles */}
             {boletos.map((boleto) => (
               <div key={boleto.id} className="col mb-2 px-1">
@@ -186,6 +187,8 @@ export default function AdminPanelContent() {
           </div>
         </div>
       </div>
+
+      <Sorteo/>
     </div>
   );
 }

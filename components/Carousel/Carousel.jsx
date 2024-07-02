@@ -25,9 +25,9 @@ export default function Carousel() {
         <span className="visually-hidden">Next</span>
       </button>
 
-      <div className="textContain p-3 d-flex justify-content-center align-items-center position-absolute top-50 start-50 translate-middle text-center bg-dark bg-opacity-75 rounded-3">
+      <div className="textContain p-3 d-flex justify-content-center align-items-center position-absolute top-50 start-50 translate-middle text-center bg-dark bg-opacity-50 rounded-3">
         <div>
-          <img src="/images/logo.png" width={100} height={100} className="d-block mx-auto" alt="Logo" />
+          <Image src="/images/logo.png" width={80} height={80} className="d-block mx-auto" alt="Logo" />
           <div className="text-center">
             <h1 className="text-white">Sorteos entre amigos</h1>
             <h2 className="text-white">Los mochis - Culiacan</h2>

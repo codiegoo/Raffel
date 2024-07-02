@@ -1,0 +1,78 @@
+.luckyContain
+  width: 70%
+  margin-bottom: 2%
+  border-radius: 1rem
+  background: #00A82A
+  display: flex
+  flex-direction: column
+  align-items: center
+  h2
+    font-weight: bold
+    font-size: 2rem
+    margin-bottom: 2%
+  .menuStripContain
+    width: 40%
+    margin-bottom: 2%
+  .imageContainer
+    position: relative
+    p
+      position: absolute
+      top: 50%
+      left: 50%
+      transform: translate(-50%, -50%)
+      font-size: 2rem
+      font-weight: bold
+      animation: breathe 1s ease-in-out infinite alternate
+      overflow: hidden
+      color: #fff
+      text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.75), 2px 2px 0 rgba(0, 0, 0, 0.75), 3px 3px 0 rgba(0, 0, 0, 0.75), 4px 4px 0 rgba(0, 0, 0, 0.75), 5px 5px 0 rgba(0, 0, 0, 0.75)
+  .boletosGeneratedContain
+    width: 100%
+    padding: 0 4%
+    h6
+      font-size: 1.5rem
+      color: #191919
+      font-weight: bold
+    .boletosGrid
+      display: flex
+      justify-content: center
+  .btnApartarTickets
+    background: #191919
+    padding: 1rem
+    margin: 2% 0% 5% 0%
+    border-radius: .5rem
+    text-decoration: none
+    color: #fff
+    font-weight: bold
+    font-size: 1.2rem
+    width: 30%
+    border: none
+  .btnApartarTickets:hover
+    background: #ffde01ff
+    color: #191919
+    -webkit-box-shadow: 10px 10px 5px -3px rgba(0,0,0,0.75)
+    -moz-box-shadow: 10px 10px 5px -3px rgba(0,0,0,0.75)
+    box-shadow: 10px 10px 5px -3px rgba(0,0,0,0.75)
+
+
+.confettiBtn
+  background: #FFBF00
+  border: none
+  border-radius: 1rem
+  padding: 0.5rem
+  margin-top: 5rem
+
+
+.canvas-confetti-btn
+  font-size: 2rem
+  border: none
+  background-color: transparent
+  cursor: pointer
+  position: relative
+
+
+@keyframes breathe 
+  0%
+    transform: translate(-50%, -50%) scale(1)
+  100%
+    transform: translate(-50%, -50%) scale(1.3)

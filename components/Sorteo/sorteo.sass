@@ -1,0 +1,60 @@
+.luckyContain
+  width: 70%
+  margin: 0 auto
+  padding: 1%
+  border-radius: 1rem
+  background: #00A82A
+  display: flex
+  flex-direction: column
+  align-items: center
+  text-align: center
+  h2
+    font-weight: bold
+    font-size: 2rem
+    margin-bottom: 2%
+  .imageContainer
+    position: relative
+    p
+      color: #fff
+      position: absolute
+      top: 50%
+      left: 50%
+      transform: translate(-50%, -50%)
+      font-size: 1.8rem
+      font-weight: bold
+      animation: breathe 1s ease-in-out infinite alternate
+      overflow: hidden
+      text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.75), 2px 2px 0 rgba(0, 0, 0, 0.75), 3px 3px 0 rgba(0, 0, 0, 0.75), 4px 4px 0 rgba(0, 0, 0, 0.75), 5px 5px 0 rgba(0, 0, 0, 0.75)
+  .boletosGeneratedContain
+    width: 100%
+    padding: 0 4%
+    h6
+      font-size: 1.5rem
+      color: #191919
+      font-weight: bold
+    .boletosGrid
+      display: flex
+      justify-content: center
+
+
+.confettiBtn
+  background: #FFBF00
+  border: none
+  border-radius: 1rem
+  padding: 0.5rem
+  margin-top: 5rem
+
+
+.canvas-confetti-btn
+  font-size: 2rem
+  border: none
+  background-color: transparent
+  cursor: pointer
+  position: relative
+
+
+@keyframes breathe 
+  0%
+    transform: translate(-50%, -50%) scale(1)
+  100%
+    transform: translate(-50%, -50%) scale(1.3)
