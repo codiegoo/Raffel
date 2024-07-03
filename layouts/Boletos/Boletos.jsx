@@ -93,9 +93,9 @@
           <div className="promosContain text-center">
             <h2>PROMOS</h2>
             <div className="promosCardsContain">
-              <div className="promosItem">1 🎟️​----❌----190💲</div>
-              <div className="promosItem">3 🎟️----❌----450💲</div>
-              <div className="promosItem">5 🎟️----❌----650💲</div>
+              <div className="promosItem">1 🎟️​----❌----150💲</div>
+              <div className="promosItem">3 🎟️----❌----300💲</div>
+              <div className="promosItem">5 🎟️----❌----450💲</div>
             </div>
           </div>
           <div className="infoSorteoContain">
