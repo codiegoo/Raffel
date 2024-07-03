@@ -7,7 +7,6 @@ import boletosData from '@/data/boletos.json'; // Ajusta la ruta según donde es
 
 const LuckyMachine = React.forwardRef((props, ref) => {
   const [generatedTickets, setGeneratedTickets] = useState([]);
-  const [generateText, setGenerateText] = useState('');
   const [showForm, setShowForm] = useState(false);
 
   const formRef = useRef(null);
@@ -17,8 +16,7 @@ const LuckyMachine = React.forwardRef((props, ref) => {
   };
 
   const handleChange = (event) => {
-    const numTickets = event.target.value;
-    setGenerateText(`Click aquí para generar ${numTickets} boletos!`);
+    event.target.value;
   };
 
   const handleClickForm = (event) => {
@@ -84,7 +82,7 @@ const LuckyMachine = React.forwardRef((props, ref) => {
         </select>
         <div className="imageContainer canvas-confetti-btn animate__animated confettiBtn" onClick={handleImageClick}>
           <Image src="/images/maquinita.jpg" width={600} height={450} />
-          <p>{generateText}</p>
+          <p>Click aquí para <br /> generar tus boletos!</p>
         </div>
 
         <div className="boletosGeneratedContain">
