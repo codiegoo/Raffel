@@ -18,13 +18,10 @@ export default function Pagos() {
                         <Image src="/images/visa.png" width={50} height={25}></Image>
                     </div>
                     <div class="card-no">
-                        <p>5244</p>
-                        <p>2150</p>
-                        <p>8252</p>
-                        <p>6420</p>
+                        <p>5244 2150 8252 6420</p>
                     </div>
                     <div className="nameContain">
-                      <p>NOMBRE1 NOMBRE2 APELLIDO1 APELLIDO2</p>
+                      <p>Nombre Nombre Apellido Apellido</p>
                     </div>
                 </div>
           </div>
@@ -38,13 +35,10 @@ export default function Pagos() {
                         <Image src="/images/visa.png" width={50} height={25}></Image>
                     </div>
                     <div class="card-no">
-                        <p>5244</p>
-                        <p>2150</p>
-                        <p>8252</p>
-                        <p>6420</p>
+                      <p>5244 2150 8252 6420</p>
                     </div>
                     <div className="nameContain">
-                      <p>NOMBRE1 NOMBRE2 APELLIDO1 APELLIDO2</p>
+                      <p>Nombre Nombre Apellido Apellido</p>
                     </div>
                 </div>
           </div>

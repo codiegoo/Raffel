@@ -25,6 +25,51 @@
       };
     }, []);
 
+    const toggleOffcanvas = () => {
+      const offcanvasNavbar = document.getElementById('offcanvasNavbar');
+      const navBurgerContain = document.querySelector('.navBurgerContain');
+      const backdrop = document.querySelector('.offcanvas-backdrop');
+      const navElement = document.querySelector('nav');
+      const bodyElement = document.querySelector('body');
+  
+      if (offcanvasNavbar && navBurgerContain && backdrop && navElement && bodyElement) {
+        // Toggle the 'show' class for offcanvasNavbar and backdrop
+        offcanvasNavbar.classList.toggle('show');
+        backdrop.classList.toggle('show');
+  
+        // Toggle aria-modal and role attributes for navBurgerContain
+        if (navBurgerContain.getAttribute('aria-modal')) {
+          navBurgerContain.removeAttribute('aria-modal');
+        } else {
+          navBurgerContain.setAttribute('aria-modal', 'true');
+        }
+        if (navBurgerContain.getAttribute('role')) {
+          navBurgerContain.removeAttribute('role');
+        } else {
+          navBurgerContain.setAttribute('role', 'dialog');
+        }
+  
+        // Restore navElement and bodyElement styles when closing offcanvas
+        if (!offcanvasNavbar.classList.contains('show')) {
+          navElement.style.transition = '';
+          navElement.style.paddingRight = '';
+          bodyElement.style.overflow = '';
+          bodyElement.style.paddingRight = '';
+  
+          // Remove the backdrop completely from the DOM
+          setTimeout(() => {
+            backdrop.remove();
+          }, 300); // Wait for transition duration (0.3s) before removing
+        } else {
+          navElement.style.transition = 'transform 0.3s ease-in-out 0s';
+          navElement.style.paddingRight = '15px';
+          bodyElement.style.overflow = 'hidden';
+          bodyElement.style.paddingRight = '15px';
+        }
+      }
+    };
+
+
     return (
       <nav className="navbar bg-dark fixed-top">
         <div className="navbarInner container-fluid d-flex justify-content-between align-items-center">
@@ -64,16 +109,16 @@
             <div className="offcanvas-body">
               <ul className={isSmallScreen ? "navbar-nav flex-column" : "navbar-nav justify-content-end flex-grow-1 pe-3"}>
                 <li className="nav-item">
-                  <a className="nav-link active" aria-current="page" href="#InicioContain">Inicio</a>
+                  <a className="nav-link" aria-current="page" href="#InicioContain" onClick={toggleOffcanvas}>Inicio</a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="#boletosContain">Boletos</a>
+                  <a className="nav-link" href="#boletosContain" onClick={toggleOffcanvas}>Boletos</a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="#PagosContain">Pagos</a>
+                  <a className="nav-link" href="#pagosContain" onClick={toggleOffcanvas}>Pagos</a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="#ContactoContain">Contacto</a>
+                  <a className="nav-link" href="#contactoContain" onClick={toggleOffcanvas}>Contacto</a>
                 </li>
               </ul>
             </div>
