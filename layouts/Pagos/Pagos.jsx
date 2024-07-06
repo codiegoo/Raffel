@@ -17,7 +17,7 @@ export default function Pagos() {
                         <Image src="/images/chip.png" width={60} height={40}></Image>
                         <Image src="/images/visa.png" width={50} height={25}></Image>
                     </div>
-                    <div class="card-no">
+                    <div class="card-no" style={{ userSelect: 'none' }}>
                         <p>5244 2150 8252 6420</p>
                     </div>
                     <div className="nameContain">
@@ -34,7 +34,7 @@ export default function Pagos() {
                         <Image src="/images/chip.png" width={60} height={40}></Image>
                         <Image src="/images/visa.png" width={50} height={25}></Image>
                     </div>
-                    <div class="card-no">
+                    <div class="card-no" style={{ userSelect: 'none' }}>
                       <p>5244 2150 8252 6420</p>
                     </div>
                     <div className="nameContain">
