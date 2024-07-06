@@ -29,8 +29,8 @@ export default function Carousel() {
         <div>
           <Image src="/images/logo.png" width={80} height={80} className="d-block mx-auto" alt="Logo de la pagina web de sorteos jp" />
           <div className="text-center">
-            <h1 className="text-white">Sorteos entre amigos</h1>
-            <h2 className="text-white">Los mochis - Culiacan</h2>
+            <h2 className="text-white">Sorteos entre amigos</h2>
+            <h3 className="text-white">Los mochis - Culiacan</h3>
             <Link href="#premiosContain" className="btnPremios">Info del sorteo 🎁</Link>
           </div>
         </div>
