@@ -1,5 +1,6 @@
 import fs from 'fs/promises';
 import path from 'path'
+import { NextResponse } from 'next/server';
 
 
 const boletosFilePath = path.join('./data/boletos.json')
@@ -11,15 +12,13 @@ export async function GET() {
     const boletosData = JSON.parse(data);
 
     // Retornar los boletos en la respuesta como JSON
-    return new Response(
-      JSON.stringify({
-        boletos: boletosData.boletos
-      })
-    )
+    return NextResponse.json({
+      boletos: boletosData.boletos
+    });
   } catch (error) {
     console.error('Error en GET:', error);
     // Retornar una respuesta de error
-    return new Response({ error: 'Hubo un error en la solicitud GET' })
+    return NextResponse.json({ error: 'Hubo un error en la solicitud GET' }, { status: 500 });
   }
 }
 
@@ -57,11 +56,13 @@ export async function POST(request) {
     await fs.writeFile(boletosFilePath, JSON.stringify(boletosData, null, 2));
 
     // Construir la respuesta exitosa
-    return new Response(JSON.stringify("Boletos actualizados"));
+    return NextResponse.json({
+      message: "boletos desactivados"
+    });
 
   } catch (error) {
     console.error('Error en POST:', error);
     // Retornar una respuesta de error
-    return new Response({ error: error });
+    return NextResponse.json({ error: 'Hubo un error en la solicitud POST' }, { status: 500 });
   }
 }
