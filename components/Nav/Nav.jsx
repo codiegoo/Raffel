@@ -48,7 +48,7 @@
                   <Link href="#boletosContain" className="nav-link text-white fw-bold fs-5">Boletos</Link> 
                 </li>
                 <li className="nav-item mx-4">
-                  <Link href="#contactoContain" className="nav-link text-white fw-bold fs-5">Pagos</Link> 
+                  <Link href="#pagosContain" className="nav-link text-white fw-bold fs-5">Pagos</Link> 
                 </li>
                 <li className="nav-item mx-4">
                   <Link href="#contactoContain" className="nav-link text-white fw-bold fs-5">Contacto</Link> 

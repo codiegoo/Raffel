@@ -4,15 +4,15 @@ import './luckyMachine.sass';
 import Form from '@/components/Form/Form';
 import confetti from 'canvas-confetti';
 import boletosData from '@/data/boletos.json'; // Ajusta la ruta según donde esté tu archivo JSON
+import Link from 'next/link';
 
-const LuckyMachine = React.forwardRef((props, ref) => {
+export default function LuckyMachine({setShowLuckyMachine}) {
   const [generatedTickets, setGeneratedTickets] = useState([]);
   const [showForm, setShowForm] = useState(false);
 
-  const formRef = useRef(null);
 
   const handleSubmit = (event) => {
-    event.preventDefault();
+    event.preventDefault(event);
   };
 
   const handleChange = (event) => {
@@ -28,6 +28,10 @@ const LuckyMachine = React.forwardRef((props, ref) => {
     const selectValue = document.getElementById('ticketCount').value;
     generateTickets(parseInt(selectValue));
     fireConfetti();
+  };
+
+  const handleClose = () => {
+    setShowLuckyMachine(false);
   };
 
   const generateTickets = (count) => {
@@ -71,7 +75,8 @@ const LuckyMachine = React.forwardRef((props, ref) => {
   };
 
   return (
-      <form ref={ref} className={`luckyContain ${showForm ? 'displayNone' : ''}`} onSubmit={handleSubmit} displayName="formLuckyNumbers">
+    <div className="luckyMachineContain">
+      <form className='luckyContain' onSubmit={handleSubmit} displayName="formLuckyNumbers">
         <h2>🎰 MAQUINITA DE LA SUERTE 🎰</h2>
         <select id="ticketCount" className="menuStripContain form-select" aria-label="Default select example" onChange={handleChange} name="ticketCount">
           <option defaultValue>🎉 Elige la cantidad de boletos a generar ☘️</option>
@@ -99,12 +104,10 @@ const LuckyMachine = React.forwardRef((props, ref) => {
             ))}
           </div>
         </div>
-        <button className="btnApartarTickets" type="submit" onClick={handleClickForm}>🎉 Apartar 🎉</button>
-        {showForm && <Form boletosSeleccionados={generatedTickets} ref={formRef} />}
       </form>
+      <Link href="" className="btnApartarTickets" onClick={handleClickForm}>🎉 Apartar 🎉</Link>
+      {showForm && <Form boletosSeleccionados={generatedTickets} setShowForm={setShowForm}/>}
+      <button type="button" className="btnCloseLuckyMachine" onClick={handleClose}>x</button>
+    </div>
   );
-});
-
-LuckyMachine.displayName = 'LuckyMachine';
-
-export default LuckyMachine;
+}

@@ -1,7 +1,9 @@
-import React from 'react';
 import './form.sass';
 
-const Form = React.forwardRef(({ boletosSeleccionados }, ref) => {
+export default function Form({ boletosSeleccionados, setShowForm}) {
+
+
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const formData = new FormData(event.target);
@@ -11,6 +13,10 @@ const Form = React.forwardRef(({ boletosSeleccionados }, ref) => {
     const numeroWhatsApp = formData.get('userNumber');
 
     enviarMensajeWhatsApp(nombreCompleto, numeroWhatsApp, boletosSeleccionados);
+  };
+
+  const handleClose = () => {
+    setShowForm(false);
   };
 
   // Función para enviar mensaje a WhatsApp
@@ -26,8 +32,9 @@ const Form = React.forwardRef(({ boletosSeleccionados }, ref) => {
     window.open(url, '_blank');
   };
 
+
   return (
-    <form ref={ref} className="formContain" displayName="formUserData" onSubmit={handleSubmit}>
+    <form className="formContain" displayName="formUserData" onSubmit={handleSubmit}>
       <div className="inputContain">
         <label htmlFor="userName">Nombre completo:</label>
         <input type="text" id="userName" name="userName" placeholder="nombre(s), primer apellido, segundo apellido" />
@@ -53,12 +60,9 @@ const Form = React.forwardRef(({ boletosSeleccionados }, ref) => {
           ))}
         </div>
       </div>
-
-      <button type="submit">🎉 Apartar 🎉</button>
+      
+      <button type="submit" className="btnApartarForm">🎉 Apartar 🎉</button>
+      <button type="button" className="btnCloseForm" onClick={handleClose}>x</button>
     </form>
   );
-});
-
-Form.displayName = 'Form';
-
-export default Form;
+}

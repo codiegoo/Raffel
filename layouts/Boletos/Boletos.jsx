@@ -15,10 +15,6 @@
     const [showLuckyMachine, setShowLuckyMachine] = useState(false)
 
 
-    const formRef = useRef(null);
-    const luckyMachineRef = useRef(null);
-
-
     useEffect(() => {
       setBoletos(boletosData.boletos);
     }, []);
@@ -67,25 +63,8 @@
     };
 
 
-    const handleClickOutside = (event) => {
-      if (showForm || showLuckyMachine) {
-        // Verificar si el clic fue dentro de Form o LuckyMachine
-        const formClicked = formRef.current && formRef.current.contains(event.target);
-        const luckyMachineClicked = luckyMachineRef.current && luckyMachineRef.current.contains(event.target);
   
-        if (!formClicked && !luckyMachineClicked) {
-          setShowForm(false);
-          setShowLuckyMachine(false);
-        }
-      }
-    };
-  
-    useEffect(() => {
-      document.addEventListener('mousedown', handleClickOutside);
-      return () => {
-        document.removeEventListener('mousedown', handleClickOutside);
-      };
-    }, [showForm, showLuckyMachine]);
+    
 
     return (
       <section className="boletosContain">
@@ -93,25 +72,21 @@
           <div className="promosContain text-center">
             <h2>PROMOS</h2>
             <div className="promosCardsContain">
-              <div className="promosItem">1 🎟️​----❌----150💲</div>
-              <div className="promosItem">3 🎟️----❌----300💲</div>
-              <div className="promosItem">5 🎟️----❌----450💲</div>
+              <div className="promosItem">💲190💲 1 🎟️</div>
+              <div className="promosItem">💲180💲 si nos sigues en fb</div>
+              <div className="promosItem">💲170💲 si compras 3 o mas 🎟️</div>
             </div>
           </div>
           <div className="infoSorteoContain">
             <h2>INFORMACION</h2>
             <p>Nuestros sorteos son basados en ruletita de la suerte 🍀 anímate y se uno de nuestros ganadores 🎖️, todo nuestros sorteos se realizarán en vivo a través de Facebook.✅​</p>
-            <h3>NOTA❗</h3>
-            <p>Si eres ganador de un premio aun participas por los demas.✅​</p>
-            <h3>NOTA❗</h3>
-            <p>La rifa se llevara acabo una vez vendidos los boletos disponibles.✅​</p>
-            <h3>NOTA❗</h3>
-            <p>Paga tus boletos en el momento que los apartas ya que puede que te lo ganen.✅​</p>
-            <h3>NOTA❗</h3>
-            <p>Si eliges un numero de boletos que no aplique en ninguna promo los boletos se cobraran por unidad.✅​</p>
-            <h3>NOTA❗</h3>
-            <p>Si quieres comprar mas de 5 boletos y recibir una promocion contactanos antes de apartar tus boletos.✅​</p>
-          </div>
+            <h3>NOTAS</h3>
+            <p>✨ Si eres ganador de un premio aun participas por los demas. ✅​</p>
+            <p>✨ La rifa se llevara acabo una vez vendidos los boletos disponibles. ✅​</p>
+            <p>✨ Paga tus boletos en el momento que los apartas ya que puede que te lo ganen. ✅​</p>
+            <p>✨ Si eliges un numero de boletos que no aplique en ninguna promo los boletos se cobraran por unidad. ✅​</p>
+            <p>✨ Si quieres comprar mas de 5 boletos y recibir una promocion contactanos antes de apartar tus boletos. ✅​</p>
+          </div> 
         </div>
 
         <div id="boletosContain" className="searchSelectContain">
@@ -150,7 +125,7 @@
               </div>
             )}
             <Link href="#" onClick={handleClickLuckyMachine} className="btnLuckyMachine">⭐ Prueba tu suerte 🎰​</Link>
-            {showLuckyMachine && <LuckyMachine ref={luckyMachineRef}/>}
+            {showLuckyMachine && <LuckyMachine setShowLuckyMachine={setShowLuckyMachine} showForm={showForm} setShowForm={setShowForm} />}
           </div>
             
           <div className="selectTicketsContain container">
@@ -172,7 +147,7 @@
                 ))}
               </div>
               <Link href="" onClick={handleClickForm} className="btnApartar">🎉  Apartar 🎉</Link>
-              {showForm && <Form boletosSeleccionados={boletosSeleccionados} ref={formRef}/>}
+              {showForm && <Form boletosSeleccionados={boletosSeleccionados} setShowForm={setShowForm} />}
           </div>
 
           <div className="ticketListContain container mt-4">

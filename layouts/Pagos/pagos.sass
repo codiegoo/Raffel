@@ -1,0 +1,79 @@
+#pagosContain
+  background: #191919
+  padding: 5% 0
+  h2
+    color: #fff
+    font-weight: bold
+    text-align: center
+    font-size: 2.3rem
+  .cardsContain
+    display: flex
+    flex-direction: row
+    justify-content: center
+    gap: 8%
+    width: 80%
+    margin: 4% auto
+    .card
+      width: 500px
+      height: 300px
+      color: #fff
+      cursor: pointer
+      border-radius: 1rem
+      -webkit-box-shadow: 10px 10px 5px -3px rgba(255, 255, 255, 0.20)
+      -moz-box-shadow: 10px 10px 5px -3px rgba(255, 255, 255, 0.20)
+      box-shadow: 10px 10px 5px -3px rgba(255, 255, 255, 0.20)
+      .card-inner
+        width: 100%
+        height: 100%
+        position: relative
+        border-radius: 1rem
+        .front
+          width: 100%
+          height: 100%
+          background-image: linear-gradient(45deg, #00a82a, #ffdd01)
+          position: absolute
+          display: flex
+          flex-direction: column
+          top: 0
+          left: 0
+          padding: 20px 30px
+          border-radius: 1rem
+          overflow: hidden
+          z-index: 1
+          backface-visibility: hidden
+          .map-img
+            width: 100%
+            position: absolute
+            top: 0
+            left: 0
+            opacity: 0.3
+            z-index: -1
+          .row
+            width: auto
+            display: flex
+            align-items: center
+            justify-content: space-between
+            img
+              width: auto
+          .card-no
+            display: flex
+            flex-direction: row
+            gap: 1rem
+            font-size: 35px
+            margin-top: 60px
+          .nameContain
+            p
+              margin: 1rem 0
+              font-size: 1.5rem
+              color: #fff
+  .textContain
+    text-align: center
+    width: 80%
+    margin: 0 auto
+    h3
+      font-size: 2rem
+      color: #fff
+    p
+      color: #fff
+      font-size: 1.5rem
+      margin: 2% 0 0 0

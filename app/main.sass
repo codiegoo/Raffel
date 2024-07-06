@@ -1,5 +1,6 @@
 
-
+body
+  background: #191919
 
 @media screen and  (max-width: 990px)
   #InicioContain
@@ -41,22 +42,52 @@
           width: 75% !important
         .btnLuckyMachine
           width: auto !important
-        .luckyContain
+        .luckyMachineContain
           width: 80%
-          .menuStripContain
-            width: 80% !important
-          .imageContainer
-            margin: 0
+          .luckyContain
             width: 100%
-            img
+            h2
+              padding-top: 8% 
+            .menuStripContain
+              width: 80% !important
+            .imageContainer
+              margin: 0
               width: 100%
-              height: 100%
-            p
-              font-size: 1.5rem
+              img
+                width: 100%
+                height: 100%
+              p
+                font-size: 1.5rem
+            .boletosGeneratedContain
+              .boletosGrid
+                .col
+                  .card
+                    .card-body
+                      h5
+                        font-size: 1rem
           form
             width: 80%
             top: 30%
             left: 10%
+            .boletosClienteContain
+              .boletosListGrid
+                .col
+                  .card
+                    .card-body
+                      h5
+                        font-size: 1rem
+            .btnCloseForm
+              width: 2rem
+              height: 2rem
+              top: 1%
+              right: 1%
+          .btnCloseLuckyMachine
+            width: 2rem
+            height: 2rem
+            top: 1%
+            right: 1%
+          .btnApartarTickets
+            width: 40%
         .boletosCoinciden
           .coincidenListContain
             .boletoCoincideItem
@@ -75,6 +106,11 @@
           width: 80%
           top: 5%
           right: 10%
+          .btnCloseForm
+            width: 2rem
+            height: 2rem
+            top: 1%
+            right: 1%
       .ticketListContain
         .ticketsList
           .col
@@ -168,10 +204,7 @@
         h2
           font-size: 1.5rem !important
         .promosCardsContain
-          gap: 2%
-          padding: 0 2%
           .promosItem
-            width: 100% !important
             font-size: .8rem !important
       .infoSorteoContain
         p
@@ -182,27 +215,26 @@
           width: 95% !important
         .btnLuckyMachine
           font-size: 1rem !important
-        .luckyContain
+        .luckyMachineContain
           width: 95%
-          h2
-            font-size: 1.5rem 
-          .imageContainer
-            width: 100%
-            img
-              width: 100%
-              height: 100%
-            p
-              font-size: 1.3rem
-          .boletosGeneratedContain
-            .boletosGrid
-              .col
-                .card
-                  .card-body
-                    padding: 3%
-                    h5
-                      font-size: 1rem
-          .btnApartarTickets
-            width: auto
+          .luckyContain
+            h2
+              font-size: 1.5rem 
+              p
+                font-size: 1.3rem
+            .boletosGeneratedContain
+              .boletosGrid
+                .col
+                  .card
+                    .card-body
+                      padding: 3%
+          form
+            .boletosClienteContain
+              .boletosListGrid
+                .col
+                  .card
+                    .card-body
+                      padding: 3%
         .boletosCoinciden
           width: 100% !important
           display: flex
@@ -214,8 +246,6 @@
               .boletoCardContain
                 .boletoCardInner
                   padding: 3%
-                  h5
-                    font-size: 1rem
       .selectTicketsContain
         width: 95%
         .btnApartar
@@ -226,8 +256,6 @@
             .listTicketsInner
               .listTicketsCard
                 padding: 3%
-                h5
-                  font-size: 1rem
         .formContain
           width: 95%
           top: 1%
@@ -239,7 +267,7 @@
                   .card-body
                     padding: 3%
                     h5
-                      font-size: .8rem !important
+                      font-size: 1rem !important
       .ticketListContain
         width: 95%
         h4
@@ -249,8 +277,6 @@
             .card
               .card-body
                 padding: 3%
-                h5
-                  font-size: 1rem
   .adminPanelContain
     .boletosAdminContain
       .searchContain
@@ -266,24 +292,18 @@
               .card
                 .card-body
                   padding: 3%
-                  h5
-                    font-size: 1rem
       .selectTicketsContain
         .row
           .col
             .card
               .card-body
                 padding: 3%
-                h5
-                  font-size: 1rem
       .boletosAdminInner
         .row
           .col
             .card
               .card-body
                 padding: 3%
-                h5
-                  font-size: 1rem
     .luckyContain
       width: 95%
       h2
@@ -291,10 +311,6 @@
       .imageContainer
         margin: 0
         padding: 0
-        width: 100%
-        img
-          width: 100%
-          height: 100%
         p
           font-size: 1.3rem
 
@@ -303,170 +319,90 @@
 @media screen and  (max-width: 450px)
   #InicioContain
     nav
-      height: 4rem
       .navbarInner
-        .logoContain 
-          gap: .5rem
+        .logoContain
           img
             width: 2rem
             height: 2rem
           .logoTextContain
             h2
               font-size: 1.2rem
-        .navBurgerContain
-          .offcanvas-header
-            h5
-              font-size: 1.5rem
     #carouselExampleInterval
       .textContain
         padding: .2rem !important
-        img
-          width: 2rem
-          height: 2rem
         .text-center
           h1
             font-size: .9rem !important
             margin: 0
-          h2
-            font-size: .8rem
-          .btnPremios
-            display: none
     .premiosContainer
       .txtPremiosContain
-        padding: 0 2% 
         .txtPremio
           height: 4rem !important
           border-radius: .5rem
-          h3
-            font-size: .8rem
   .boletosContain
     .infoTxtContain
       .promosContain
-        h2
-          font-size: 1.5rem !important
         .promosCardsContain
           display: flex !important
           flex-direction: column !important
           gap: .5rem !important
           .promosItem
             width: 100% !important
-            font-size: .8rem !important
             padding: 1rem !important
             border-radius: .5rem  !important
-      .infoSorteoContain
-        p
-          font-size: 1rem !important
     .searchSelectContain
       .searchContain
-        .searchInner
-          width: 95% !important
-        .btnLuckyMachine
-          font-size: 1rem !important
-        .luckyContain
-          width: 95%
-          h2
-            font-size: 1.2rem 
-          .menuStripContain
-            width: 95% !important
-            font-size: .8rem
-          .imageContainer
-            margin: 0rem
-            padding: 0
-            width: 100%
-            img
+        .luckyMachineContain
+          .luckyContain
+            h2
+              font-size: 1.2rem 
+            .menuStripContain
+              width: 95% !important
+              font-size: .8rem
+            .imageContainer
+              margin: 0rem
+              padding: 0
               width: 100%
-              height: 100%
-            p
-              font-size: 1.3rem
-          .boletosGeneratedContain
-            h6
-              font-size: 1.2rem !important
-            .boletosGrid
-              .col
-                .card
-                  .card-body
-                    padding: 3%
-                    h5
-                      font-size: 1rem
-          .btnApartarTickets
-            width: auto
-            font-size: 1rem
-          .formContain
-            width: 95%
-            left: 2%
-            top: 20%
-            .inputContain
-              label
-                font-size: 1.2rem
-              input
-                font-size: .8rem !important
-            button
-              width: auto
-            .boletosClienteContain
-              .boletosListGrid
+              img
+                width: 100%
+                height: 100%
+              p
+                font-size: 1.3rem
+            .boletosGeneratedContain
+              h6
+                font-size: 1.2rem !important
+              .boletosGrid
                 .col
                   .card
                     .card-body
                       padding: 3%
                       h5
-                        font-size: 1rem 
-        .boletosCoinciden
-          width: 100% !important
-          display: flex
-          justify-content: center
-          .coincidenListContain
-            width: 100%
-            padding: 0
-            .boletoCoincideItem
-              .boletoCardContain
-                .boletoCardInner
-                  padding: 3%
-                  h5
-                    font-size: 1rem
-      .selectTicketsContain
-        width: 95%
-        .btnApartar
-          padding: 4% 11% !important
-          font-size: 1rem !important
-        .selectTicketsList
-          .listTicketsContain
-            .listTicketsInner
-              .listTicketsCard
-                padding: 3%
-                h5
-                  font-size: 1rem
+                        font-size: 1rem
+          .btnApartarTickets
+            width: 50%
+            font-size: 1rem
+          .formContain
+            width: 95%
+            left: 2%
+            top: 15%
+            .inputContain
+              label
+                font-size: 1.2rem
+              input
+                font-size: .8rem !important
+            .btnApartarForm
+              width: auto
         .formContain
-          width: 95%
-          top: 1%
-          left: 2%
           .inputContain
             label
               font-size: 1.2rem
             input
               font-size: .8rem
-          button
+          .btnApartarForm
             width: auto
           .boletosClienteContain
             h6
               font-size: 1.2rem
-            .boletosListGrid
-              .col
-                .card
-                  .card-body
-                    padding: 3%
-                    h5
-                      font-size: 1rem 
-      .ticketListContain
-        width: 95%
-        h4
-          font-size: 1.5rem !important
-        .ticketsList
-          .col
-            .card
-              .card-body
-                padding: 3%
-                h5
-                  font-size: 1rem
   .adminPanelContain
     .formContain
       form
@@ -476,50 +412,12 @@
           width: 100%
           input
             width: 100%
-    .boletosAdminContain
-      .searchContain
-        width: 95%
-        margin: 0 auto
-        .searchInner
-          width: 100% !important
-          margin-bottom: 1rem !important
-        .boletosCoinciden
-          width: 100% !important
-          .row
-            .col
-              .card
-                .card-body
-                  padding: 3%
-                  h5
-                    font-size: 1rem
-      .selectTicketsContain
-        .row
-          .col
-            .card
-              .card-body
-                padding: 3%
-                h5
-                  font-size: 1rem
       .boletosAdminInner
         max-height: 60vh !important
-        .row
-          .col
-            .card
-              .card-body
-                padding: 3%
-                h5
-                  font-size: 1rem
     .luckyContain
-      width: 95%
       h2
         font-size: 1.2rem 
       .imageContainer
-        margin: 0
-        padding: 0
-        width: 100%
-        img
-          width: 100%
-          height: 100%
         p
           font-size: 1.2rem
       .boletosGeneratedContain
@@ -530,40 +428,22 @@
 @media screen and  (max-width: 380px)
   #InicioContain
     nav
-      height: 4rem
       .navbarInner
         .logoContain 
           gap: .5rem
-          img
-            width: 2rem
-            height: 2rem
-          .logoTextContain
-            h2
-              font-size: 1.2rem
         .navBurgerContain
           .offcanvas-header
             h5
               font-size: 1.5rem
     #carouselExampleInterval
       .textContain
-        padding: .2rem !important
-        img
-          width: 2rem
-          height: 2rem
         .text-center
-          h1
-            font-size: .9rem !important
-            margin: 0
           h2
             font-size: .8rem
-          .btnPremios
-            display: none
     .premiosContainer
       .txtPremiosContain
         padding: 0 2% 
         .txtPremio
-          height: 4rem !important
-          border-radius: .5rem
           h3
             font-size: .8rem
   .boletosContain
@@ -572,14 +452,8 @@
         h2
           font-size: 1.5rem !important
         .promosCardsContain
-          display: flex !important
-          flex-direction: column !important
-          gap: .5rem !important
           .promosItem
-            width: 100% !important
             font-size: .8rem !important
-            padding: 1rem !important
-            border-radius: .5rem  !important
       .infoSorteoContain
         p
           font-size: 1rem !important
@@ -589,54 +463,13 @@
           width: 95% !important
         .btnLuckyMachine
           font-size: 1rem !important
-        .luckyContain
-          width: 95%
-          h2
-            font-size: 1.2rem 
-          .menuStripContain
-            width: 95% !important
-            font-size: .8rem
-          .imageContainer
-            margin: 0rem
-            padding: 0
-            width: 100%
-            img
-              width: 100%
-              height: 100%
-            p
-              font-size: 1.3rem
-          .boletosGeneratedContain
-            h6
-              font-size: 1.2rem !important
-            .boletosGrid
-              .col
-                .card
-                  .card-body
-                    padding: 3%
-                    h5
-                      font-size: 1rem
-          .btnApartarTickets
-            width: auto
-            font-size: 1rem
-          .formContain
+        .luckyMachineContain
+          .luckyContain
             width: 95%
-            left: 2%
+            h2
+              padding-top: 10%
+          .formContain
             top: 20%
-            .inputContain
-              label
-                font-size: 1.2rem
-              input
-                font-size: .8rem !important
-            button
-              width: auto
-            .boletosClienteContain
-              .boletosListGrid
-                .col
-                  .card
-                    .card-body
-                      padding: 3%
-                      h5
-                        font-size: 1rem 
         .boletosCoinciden
           width: 100% !important
           display: flex
@@ -671,7 +504,7 @@
               font-size: 1.2rem
             input
               font-size: .8rem
-          button
+          .btnApartarForm
             width: auto
           .boletosClienteContain
             h6
