@@ -49,7 +49,7 @@ export default function AdminPanelContent() {
 
   // Función para cargar boletos desde el servidor
   const fetchBoletos = () => {
-    fetch('http://sorteos-jp.netlify.app/api/boletos')
+    fetch('https://sorteos-jp.netlify.app/api/boletos')
       .then(response => {
         if (response.ok) {
           return response.json(); // Aquí se espera recibir una respuesta JSON válida
@@ -84,7 +84,7 @@ export default function AdminPanelContent() {
 
     console.log({message: "formulario de datos", formData})
 
-    fetch('http://sorteos-jp.netlify.app/api/boletos', {
+    fetch('https://sorteos-jp.netlify.app/api/boletos', {
       method: 'POST',
       body: formData
     })

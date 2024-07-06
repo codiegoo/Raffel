@@ -9,15 +9,15 @@ export default function Pagos() {
     <section id="pagosContain">
       <h2>METODOS DE PAGO</h2>
       <div className="cardsContain">
-        <div class="card">
-            <div class="card-inner">
-                <div class="front">
-                    <Image width={500} height={300} src="/images/map.png" class="map-img"></Image>
-                    <div class="row">
-                        <Image src="/images/chip.png" width={60} height={40}></Image>
-                        <Image src="/images/visa.png" width={50} height={25}></Image>
+        <div className="card">
+            <div className="card-inner">
+                <div className="front">
+                    <Image width={500} height={300} src="/images/map.png" className="map-img" alt="Imagen de mapa mundial de tarjeta de credito de sorteos jp"></Image>
+                    <div className="row">
+                        <Image src="/images/chip.png" width={60} height={40} alt="Imagen de chip de tarjeta de credito de sorteos jp"></Image>
+                        <Image src="/images/visa.png" width={50} height={25} alt="Imagen de logo de visa de tarjeta de credito de sorteos jp"></Image>
                     </div>
-                    <div class="card-no">
+                    <div className="card-no">
                         <p style={{ userSelect: 'none' }}>5244 2150 8252 6420</p>
                     </div>
                     <div className="nameContain">
@@ -26,15 +26,15 @@ export default function Pagos() {
                 </div>
           </div>
         </div>
-        <div class="card">
-            <div class="card-inner">
-                <div class="front">
-                    <Image width={500} height={300} src="/images/map.png" class="map-img"></Image>
-                    <div class="row">
-                        <Image src="/images/chip.png" width={60} height={40}></Image>
-                        <Image src="/images/visa.png" width={50} height={25}></Image>
+        <div className="card">
+            <div className="card-inner">
+                <div className="front">
+                    <Image width={500} height={300} src="/images/map.png" className="map-img" alt="Imagen de mapa mundial de tarjeta de credito de sorteos jp"></Image>
+                    <div className="row">
+                        <Image src="/images/chip.png" width={60} height={40} alt="Imagen de chip de tarjeta de credito de sorteos jp"></Image>
+                        <Image src="/images/visa.png" width={50} height={25} alt="Imagen de logo de visa de tarjeta de credito de sorteos jp"></Image>
                     </div>
-                    <div class="card-no">
+                    <div className="card-no">
                       <p style={{ userSelect: 'none' }}>5244 2150 8252 6420</p>
                     </div>
                     <div className="nameContain">

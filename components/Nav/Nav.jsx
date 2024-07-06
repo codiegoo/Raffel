@@ -76,7 +76,7 @@
           <div className="logoContain d-flex flex-row align-items-center">
             <Image className="logoInner" alt="logo de la pagina web sorteos jp" src="/images/logo.png" width={50} height={50}/>
             <div className="logoTextContain">
-              <h2 className="m-0 fw-bold text-white">Sorteos JP</h2>
+              <h1 className="m-0 fw-bold text-white">Sorteos JP</h1>
             </div>
           </div>
           {isSmallScreen ? (

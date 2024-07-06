@@ -54,7 +54,7 @@ const Sorteo = React.forwardRef((props, ref) => {
     <form ref={ref} className="luckyContain" onSubmit={handleSubmit} displayName="formLuckyNumbers">
       <h2>🎰 RULETITA DE LA SUERTE 🎰</h2>
       <div className="imageContainer canvas-confetti-btn animate__animated confettiBtn" onClick={handleImageClick}>
-        <Image src="/images/maquinita.jpg" width={600} height={450} />
+        <Image src="/images/maquinita.jpg" width={600} height={450} alt="Imagen de maquinita de la suerte de sorteos jp"/>
         <p>🤩 Click aquí para generar un boleto ganador! 🥳</p>
       </div>
 
