@@ -11,6 +11,8 @@ export async function GET() {
     const boletosData = JSON.parse(data);
 
     // Retornar los boletos en la respuesta como JSON
+
+    console.log("somos los boletos: " + boletosData)
     return new Response(
       JSON.stringify({
         boletos: boletosData.boletos
