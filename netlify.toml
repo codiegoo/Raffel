@@ -1,6 +1,20 @@
+[build]
+  command = "npm run build"  # Comando para ejecutar el build de tu aplicación Next.js
+  publish = "app"  # Directorio principal de la aplicación Next.js que se publicará
+
+[[functions]]
+  path = "functions/getTickets.js"
+  [functions.environment]
+    NODE_ENV = "production"
+
+[[functions]]
+  path = "functions/updateTickets.js"
+  [functions.environment]
+    NODE_ENV = "production"
+
 [[headers]]
   for = "/*"
-  [headers.values]
-    Access-Control-Allow-Origin = "*"
-    Access-Control-Allow-Methods = "GET, POST, PUT, DELETE, OPTIONS"
-    Access-Control-Allow-Headers = "Origin, X-Requested-With, Content-Type, Accept"
+    [headers.values]
+      Access-Control-Allow-Origin = "*"
+      Access-Control-Allow-Methods = "GET, POST, PUT, DELETE, OPTIONS"
+      Access-Control-Allow-Headers = "Origin, X-Requested-With, Content-Type, Accept"
