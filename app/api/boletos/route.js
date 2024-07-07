@@ -19,8 +19,7 @@ export async function GET() {
       body: {
         boletos: boletosData.boletos
       }
-    },
-    { headers: { 'Content-Type': 'application/json' } }
+    }
 
   } catch (error) {
     console.error('Error en GET:', error);
@@ -69,8 +68,7 @@ export async function POST(request) {
     return {
       status: 200,
       body: { message: 'Boletos actualizados' }
-    },
-    { headers: { 'Content-Type': 'application/json' } }
+    }
 
   } catch (error) {
     console.error('Error en POST:', error);
