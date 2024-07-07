@@ -1,13 +1,9 @@
-import fs from 'fs/promises';
-
-// Ruta absoluta al archivo boletos.json
-const boletosFilePath = '/data/boletos.json'
+import { readBoletosData } from "@/utils/dataFunctions";
 
 export default async (event, context) => {
     try {
-        const data = await fs.readFile(boletosFilePath, { encoding: 'utf8' });
-        const boletosData = JSON.parse(data);
-        
+        const boletosData = await readBoletosData();
+
         return new Response(JSON.stringify({ boletos: boletosData.boletos }), {
             status: 200,
             headers: {

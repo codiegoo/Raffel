@@ -1,16 +1,11 @@
 
 
-import fs from 'fs/promises';
-import path from 'path';
-
-const boletosFilePath = path.resolve(__dirname, '../../data/boletos.json');
+import { readBoletosData, writeBoletosData } from "@/utils/dataFunctions";
 
 export default async (event, context) => {
     try {
         const formData = JSON.parse(event.body);
-
-        const data = await fs.readFile(boletosFilePath, { encoding: 'utf8' });
-        const boletosData = JSON.parse(data);
+        let boletosData = await readBoletosData();
 
         boletosData.boletos.forEach((boleto) => {
             if (formData.includes(boleto.numero)) {
@@ -18,20 +13,24 @@ export default async (event, context) => {
             }
         });
 
-        await fs.writeFile(boletosFilePath, JSON.stringify(boletosData, null, 2));
+        await writeBoletosData(boletosData);
 
-        return {
+        return new Response({
             statusCode: 200,
             body: JSON.stringify({ message: 'Boletos actualizados correctamente' }),
             headers: {
-                'Content-Type': 'application/json'
-            }
-        };
+                'Content-Type': 'application/json',
+            },
+        });
     } catch (error) {
         console.error('Error en POST:', error);
-        return {
+        return new Response({
             statusCode: 500,
-            body: JSON.stringify({ error: 'Hubo un error en la solicitud POST' })
-        };
+            body: JSON.stringify({ error: 'Hubo un error en la solicitud POST' }),
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
     }
 }
+
