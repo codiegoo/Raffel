@@ -1,9 +1,6 @@
 // utilsData.js
 import fs from 'fs/promises';
-
-
-
-const boletosFilePath = '/data/boletos.json'
+const boletosFilePath = './data/boletos.json'
 
 export async function readBoletosData() {
     try {
