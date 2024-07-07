@@ -2,12 +2,15 @@
   command = "npm run build"
   publish = "app"  # Directorio principal de la aplicación Next.js
 
-[functions]
-  getTickets = "functions/getTickets.js"
-  updateTickets = "functions/updateTickets.js"
+[functions.getTickets]
+  path = "functions/getTickets.js"
+  [functions.getTickets.environment]
+    NODE_ENV = "production"
 
-[functions.environment]
-  NODE_ENV = "production"
+[functions.updateTickets]
+  path = "functions/updateTickets.js"
+  [functions.updateTickets.environment]
+    NODE_ENV = "production"
 
 [[headers]]
   for = "/*"
