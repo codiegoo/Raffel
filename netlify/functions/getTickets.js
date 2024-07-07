@@ -1,24 +1,29 @@
 import fs from 'fs/promises';
 import path from 'path';
 
-const boletosFilePath = path.resolve(__dirname, '../../data/boletos.json');
+const rootDirectory = path.resolve(__dirname, '../..');
+
+// Ruta absoluta al archivo boletos.json
+const boletosFilePath = path.join(rootDirectory, 'data/boletos.json');
 
 export default async (event, context) => {
     try {
         const data = await fs.readFile(boletosFilePath, { encoding: 'utf8' });
         const boletosData = JSON.parse(data);
-        return {
-            statusCode: 200,
-            body: JSON.stringify({ boletos: boletosData.boletos }),
+        
+        return new Response(JSON.stringify({ boletos: boletosData.boletos }), {
+            status: 200,
             headers: {
-                'Content-Type': 'application/json'
-            }
-        };
+                'Content-Type': 'application/json',
+            },
+        });
     } catch (error) {
         console.error('Error en GET:', error);
-        return {
-            statusCode: 500,
-            body: JSON.stringify({ error: 'Hubo un error en la solicitud GET' })
-        };
+        return new Response(JSON.stringify({ error: 'Hubo un error en la solicitud GET' }), {
+            status: 500,
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
     }
 }
