@@ -3,15 +3,11 @@
   publish = "app"  # Directorio principal de la aplicación Next.js
 
 [functions]
-  [[functions]]
-    path = "functions/getTickets.js"
-    [functions.environment]
-      NODE_ENV = "production"
+  getTickets = "functions/getTickets.js"
+  updateTickets = "functions/updateTickets.js"
 
-  [[functions]]
-    path = "functions/updateTickets.js"
-    [functions.environment]
-      NODE_ENV = "production"
+[functions.environment]
+  NODE_ENV = "production"
 
 [[headers]]
   for = "/*"
