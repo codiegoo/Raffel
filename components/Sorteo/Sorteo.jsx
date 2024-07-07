@@ -78,5 +78,6 @@ const Sorteo = React.forwardRef((props, ref) => {
   );
 });
 
+Sorteo.displayName = 'Sorteo';
 
 export default Sorteo;
