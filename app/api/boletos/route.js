@@ -1,78 +1,71 @@
-import fs from 'fs/promises';
-import path from 'path'
+import { readFileSync, writeFileSync } from 'fs';
+import path from 'path';
 
+const boletosFilePath = path.join('./data/boletos.json');
 
-const boletosFilePath = path.join('./data/boletos.json')
-
-export async function GET() {
-  try {
-    // Leer el archivo de boletos de manera asíncrona utilizando fs.promises.readFile
-    const data = await fs.readFile(boletosFilePath, { encoding: 'utf8' });
-    const boletosData = JSON.parse(data);
-    const boletos = JSON.stringify(boletosData)
-
-    // Retornar los boletos en la respuesta como JSON
-
+export async function handler(event) {
+  if (event.httpMethod === 'GET') {
+    return getBoletos();
+  } else if (event.httpMethod === 'POST') {
+    return postBoletos(event);
+  } else {
     return {
-      status: 200,
-      body: boletos
-    }
-
-  } catch (error) {
-    console.error('Error en GET:', error);
-    // Retornar una respuesta de error
-    return {
-      status: 500,
-      body: { error: 'Hubo un error en la solicitud GET' }
+      statusCode: 405,
+      body: JSON.stringify({ error: 'Método no permitido' }),
     };
   }
 }
 
-export async function POST(request) {
+function getBoletos() {
   try {
-    // Obtener los boletos seleccionados del cuerpo de la solicitud
-    const formData = await request.formData();
-    console.log(formData)
-    const boletosSeleccionados = [];
-
-
-    for (const value of formData.values()) {
-      boletosSeleccionados.push(parseInt(value)); // Parsear a entero si es necesario
-    }
-    console.log({message:"boletos seleccionados: ", boletosSeleccionados})
-    // for (const entry of formData.entries()) {
-    //   boletosSeleccionados.push(parseInt(entry[1])); // Parsear a entero si es necesario
-    // }
-
-    // Leer el archivo de boletos de manera asíncrona utilizando fs.promises.readFile
-    const data = await fs.readFile(boletosFilePath, { encoding: 'utf8' });
+    const data = readFileSync(boletosFilePath, { encoding: 'utf8' });
     const boletosData = JSON.parse(data);
 
-    // Modificar los boletos seleccionados
+    return {
+      statusCode: 200,
+      body: JSON.stringify({ boletos: boletosData.boletos }),
+    };
+  } catch (error) {
+    console.error('Error en GET:', error);
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ error: 'Hubo un error en la solicitud GET' }),
+    };
+  }
+}
+
+async function postBoletos(event) {
+  try {
+    const formData = JSON.parse(event.body);
+    const boletosSeleccionados = [];
+
+    for (const value of formData) {
+      boletosSeleccionados.push(parseInt(value));
+    }
+
+    const data = readFileSync(boletosFilePath, { encoding: 'utf8' });
+    const boletosData = JSON.parse(data);
+
     boletosData.boletos.forEach((boleto) => {
       if (boletosSeleccionados.includes(boleto.numero)) {
         if (!boleto.disponible) {
-          boleto.numero = 'Comprado'; // Cambia el número por el texto cuando no está disponible
+          boleto.numero = 'Comprado';
         }
-        boleto.disponible = false; // Marca como no disponible
+        boleto.disponible = false;
       }
     });
 
-    // Escribir de vuelta los datos al archivo de manera asíncrona utilizando fs.promises.writeFile
-    await fs.writeFile(boletosFilePath, JSON.stringify(boletosData, null, 2));
+    writeFileSync(boletosFilePath, JSON.stringify(boletosData, null, 2));
 
-    // Construir la respuesta exitosa
     return {
-      status: 200,
-      body: { message: 'Boletos actualizados' }
-    }
-
+      statusCode: 200,
+      body: JSON.stringify({ message: 'Boletos actualizados' }),
+    };
   } catch (error) {
     console.error('Error en POST:', error);
-    // Retornar una respuesta de error
     return {
-      status: 500,
-      body: { error: error.message || 'Hubo un error en la solicitud POST' }
+      statusCode: 500,
+      body: JSON.stringify({ error: error.message || 'Hubo un error en la solicitud POST' }),
     };
   }
 }
