@@ -5,7 +5,7 @@ import path from 'path';
 
 const boletosFilePath = path.resolve(__dirname, '../../data/boletos.json');
 
-export async function handler(event, context) {
+export default async (event, context) => {
     try {
         const formData = JSON.parse(event.body);
 
@@ -20,18 +20,18 @@ export async function handler(event, context) {
 
         await fs.writeFile(boletosFilePath, JSON.stringify(boletosData, null, 2));
 
-        return new Response({
+        return {
             statusCode: 200,
             body: JSON.stringify({ message: 'Boletos actualizados correctamente' }),
             headers: {
                 'Content-Type': 'application/json'
             }
-        });
+        };
     } catch (error) {
         console.error('Error en POST:', error);
-        return new Response({
+        return {
             statusCode: 500,
             body: JSON.stringify({ error: 'Hubo un error en la solicitud POST' })
-        });
+        };
     }
 }
