@@ -1,10 +1,7 @@
 import fs from 'fs/promises';
-import path from 'path';
-
-const rootDirectory = path.resolve(__dirname, '../..');
 
 // Ruta absoluta al archivo boletos.json
-const boletosFilePath = path.join(rootDirectory, 'data/boletos.json');
+const boletosFilePath = '/data/boletos.json'
 
 export default async (event, context) => {
     try {
