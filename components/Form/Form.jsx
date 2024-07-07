@@ -34,7 +34,7 @@ export default function Form({ boletosSeleccionados, setShowForm}) {
 
 
   return (
-    <form className="formContain" displayName="formUserData" onSubmit={handleSubmit}>
+    <form className="formContain" onSubmit={handleSubmit}>
       <div className="inputContain">
         <label htmlFor="userName">Nombre completo:</label>
         <input type="text" id="userName" name="userName" placeholder="nombre(s), primer apellido, segundo apellido" />

@@ -76,7 +76,7 @@ export default function LuckyMachine({setShowLuckyMachine}) {
 
   return (
     <div className="luckyMachineContain">
-      <form className='luckyContain' onSubmit={handleSubmit} displayName="formLuckyNumbers">
+      <form className='luckyContain' onSubmit={handleSubmit}>
         <h2>🎰 MAQUINITA DE LA SUERTE 🎰</h2>
         <select id="ticketCount" className="menuStripContain form-select" aria-label="Default select example" onChange={handleChange} name="ticketCount">
           <option defaultValue>🎉 Elige la cantidad de boletos a generar ☘️</option>
