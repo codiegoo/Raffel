@@ -51,7 +51,7 @@ const Sorteo = React.forwardRef((props, ref) => {
   };
 
   return (
-    <form ref={ref} className="luckyContain" onSubmit={handleSubmit} displayName="formLuckyNumbers">
+    <form ref={ref} className="luckyContain" onSubmit={handleSubmit}>
       <h2>🎰 RULETITA DE LA SUERTE 🎰</h2>
       <div className="imageContainer canvas-confetti-btn animate__animated confettiBtn" onClick={handleImageClick}>
         <Image src="/images/maquinita.jpg" width={600} height={450} alt="Imagen de maquinita de la suerte de sorteos jp"/>
@@ -77,7 +77,5 @@ const Sorteo = React.forwardRef((props, ref) => {
     </form>
   );
 });
-
-Sorteo.displayName = 'Sorteo';
 
 export default Sorteo;

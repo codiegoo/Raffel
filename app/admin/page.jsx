@@ -48,62 +48,64 @@ export default function AdminPanelContent() {
   
 
 
-  const fetchBoletos = () => {
-    fetch('https://sorteos-jp.netlify.app/.netlify/functions/getTickets')
-        .then(response => {
-            if (response.ok) {
-                return response.json();
-            }
-            throw new Error('Error al cargar los boletos');
-        })
-        .then(data => {
-          // Mapea los boletos para cambiar el número por el texto cuando no está disponible
-          const boletosActualizados = data.boletos.map(boleto => ({
-            ...boleto,
-            numero: boleto.disponible ? boleto.numero : 'Comprado'
-          }));
-          setBoletos(boletosActualizados); // Establece los boletos actualizados en el estado
-        })
-        .catch(error => {
-            console.error('Error en fetchBoletos:', error);
-        });
+  const fetchBoletos = async () => {
+    try {
+      const response = await fetch('/api/boletos');
+      if (!response.ok) {
+        throw new Error('Error al cargar los boletos');
+      }
+      const data = await response.json();
+  
+      // Mapea los boletos para cambiar el número por el texto cuando no está disponible
+      const boletosActualizados = data.boletos.map(boleto => ({
+        ...boleto,
+        numero: boleto.disponible ? boleto.numero : 'Comprado'
+      }));
+  
+      setBoletos(boletosActualizados); // Establece los boletos actualizados en el estado
+    } catch (error) {
+      console.error('Error en fetchBoletos:', error);
+    }
   };
+  
+  const handleDesactivarBoletos = async () => {
+    try {
+      const formData = new FormData();
+      boletosSeleccionados.forEach(numero => {
+        formData.append('boletosSeleccionados', numero);
+      });
+  
+      const response = await fetch('/api/boletos', {
+        method: 'POST',
+        body: formData,
+      });
+  
+      if (!response.ok) {
+        throw new Error('Error al desactivar boletos');
+      }
+  
+      await fetchBoletos();
+      setBoletosSeleccionados([]);
+      console.log('Boletos desactivados correctamente');
+    } catch (error) {
+      console.error('Error en handleDesactivarBoletos:', error);
+      console.log('Hubo un error al desactivar boletos');
+    }
+  };
+  
+  
+
 
   useEffect(() => {
     fetchBoletos();
   }, []); // El arreglo vacío indica que se ejecuta solo al montar el componente
 
-
-
-  const handleDesactivarBoletos = () => {
-    fetch('https://sorteos-jp.netlify.app/.netlify/functions/getTickets', {
-        method: 'POST',
-        body: JSON.stringify(boletosSeleccionados),
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    })
-        .then(response => {
-            if (response.ok) {
-                fetchBoletos();
-                setBoletosSeleccionados([]);
-                console.log('Boletos desactivados correctamente');
-            } else {
-                throw new Error('Error al desactivar boletos');
-            }
-        })
-        .catch(error => {
-            console.error('Error en handleDesactivarBoletos:', error);
-            console.log('Hubo un error al desactivar boletos');
-        });
-};
   
 
   return (
     <div className="adminPanelContain">
       <Login/>
       <div className="boletosAdminContain">
-
         <div className="searchContain input-group flex-nowrap">
           <div className="searchInner">
             <input type="text" className="form-control-m" placeholder="Busca tu 🎟️ ..." aria-label="  Busca tu boleto" aria-describedby="addon-wrapping" value={busqueda} onChange={handleBusquedaChange}></input>
