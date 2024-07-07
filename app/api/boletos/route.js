@@ -16,7 +16,8 @@ export async function GET() {
     return new Response(
       JSON.stringify({
         boletos: boletosData.boletos
-      })
+      }),
+      { headers: { 'Content-Type': 'application/json' } }
     )
   } catch (error) {
     console.error('Error en GET:', error);
@@ -59,7 +60,8 @@ export async function POST(request) {
     await fs.writeFile(boletosFilePath, JSON.stringify(boletosData, null, 2));
 
     // Construir la respuesta exitosa
-    return new Response(JSON.stringify("Boletos actualizados"));
+    return new Response(JSON.stringify("Boletos actualizados")),
+    { headers: { 'Content-Type': 'application/json' } }
 
   } catch (error) {
     console.error('Error en POST:', error);
