@@ -12,22 +12,20 @@ export async function GET() {
 
     // Retornar los boletos en la respuesta como JSON
 
-    console.log("somos los boletos: " + boletosData)
+    console.log("somos los boletos: " + JSON.stringify(boletosData))
 
-    return {
+    return new Response(JSON.stringify({ boletos: boletosData.boletos }), {
+      headers: { 'Content-Type': 'application/json' },
       status: 200,
-      body: {
-        boletos: boletosData.boletos
-      }
-    }
+    });
 
   } catch (error) {
     console.error('Error en GET:', error);
     // Retornar una respuesta de error
-    return {
+    return new Response(JSON.stringify({ error: 'Hubo un error en la solicitud GET' }), {
+      headers: { 'Content-Type': 'application/json' },
       status: 500,
-      body: { error: 'Hubo un error en la solicitud GET' }
-    };
+    });
   }
 }
 
@@ -64,18 +62,17 @@ export async function POST(request) {
     // Escribir de vuelta los datos al archivo de manera asíncrona utilizando fs.promises.writeFile
     await fs.writeFile(boletosFilePath, JSON.stringify(boletosData, null, 2));
 
-    // Construir la respuesta exitosa
-    return {
+    return new Response(JSON.stringify({ message: 'Boletos actualizados' }), {
+      headers: { 'Content-Type': 'application/json' },
       status: 200,
-      body: { message: 'Boletos actualizados' }
-    }
+    });
 
   } catch (error) {
     console.error('Error en POST:', error);
     // Retornar una respuesta de error
-    return {
+    return new Response(JSON.stringify({ error: error.message || 'Hubo un error en la solicitud POST' }), {
+      headers: { 'Content-Type': 'application/json' },
       status: 500,
-      body: { error: error.message || 'Hubo un error en la solicitud POST' }
-    };
+    });
   }
 }
