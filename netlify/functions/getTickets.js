@@ -1,9 +1,8 @@
 
 
 import fs from 'fs/promises';
-import path from 'path';
 
-const boletosFilePath = path.join('./data/boletos.json');
+const boletosFilePath = '../data/boletos.json'
 
 export async function handler(event, context) {
     try {

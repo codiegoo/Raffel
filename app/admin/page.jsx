@@ -49,7 +49,7 @@ export default function AdminPanelContent() {
 
 
   const fetchBoletos = () => {
-    fetch('/.netlify/netlify/functions/getTickets')
+    fetch('https://sorteos-jp.netlify.app/.netlify/functions/getTickets')
         .then(response => {
             if (response.ok) {
                 return response.json();
@@ -76,7 +76,7 @@ export default function AdminPanelContent() {
 
 
   const handleDesactivarBoletos = () => {
-    fetch('/.netlify/netlify/functions/updateTickets', {
+    fetch('https://sorteos-jp.netlify.app/.netlify/functions/getTickets', {
         method: 'POST',
         body: JSON.stringify(boletosSeleccionados),
         headers: {
