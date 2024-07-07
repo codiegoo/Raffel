@@ -1,10 +1,10 @@
 [functions.getTickets]
-  path = "functions/getTickets.js"
+  path = "netlify/functions/getTickets.js"
   [functions.getTickets.environment]
     NODE_ENV = "production"
 
 [functions.updateTickets]
-  path = "functions/updateTickets.js"
+  path = "netlify/functions/updateTickets.js"
   [functions.updateTickets.environment]
     NODE_ENV = "production"
 
