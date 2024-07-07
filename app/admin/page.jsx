@@ -49,42 +49,33 @@ export default function AdminPanelContent() {
 
   // Función para cargar boletos desde el servidor
   const fetchBoletos = () => {
-    fetch('https://sorteos-jp.netlify.app/api/boletos')
+    fetch('/api/boletos')
       .then(response => {
         if (response.ok) {
-          return response.json(); // Aquí se espera recibir una respuesta JSON válida
+          return response.json();
         }
         throw new Error('Error al cargar los boletos');
       })
       .then(data => {
-        // Mapea los boletos para cambiar el número por el texto cuando no está disponible
         const boletosActualizados = data.boletos.map(boleto => ({
           ...boleto,
           numero: boleto.disponible ? boleto.numero : 'Comprado'
         }));
-        setBoletos(boletosActualizados); // Establece los boletos actualizados en el estado
+        setBoletos(boletosActualizados);
       })
       .catch(error => {
         console.error('Error en fetchBoletos:', error);
       });
   };
 
-  useEffect(() => {
-    fetchBoletos();
-  }, []); // El arreglo vacío indica que se ejecuta solo al montar el componente
-
-
   const handleDesactivarBoletos = () => {
     const formData = new FormData();
-  
-    // Agregar cada número de boleto seleccionado al FormData
+
     boletosSeleccionados.forEach(numero => {
-      formData.append('',numero);
+      formData.append('numeroBoleto', numero.toString());
     });
 
-    console.log({message: "formulario de datos", formData})
-
-    fetch('https://sorteos-jp.netlify.app/api/boletos', {
+    fetch('/api/boletos', {
       method: 'POST',
       body: formData
     })

@@ -1,49 +1,41 @@
-import { readFileSync, writeFileSync } from 'fs';
+import fs from 'fs/promises';
 import path from 'path';
 
-const boletosFilePath = path.join('./data/boletos.json');
+const boletosFilePath = path.join(process.cwd(), 'data/boletos.json');
 
-export async function handler(event) {
-  if (event.httpMethod === 'GET') {
-    return getBoletos();
-  } else if (event.httpMethod === 'POST') {
-    return postBoletos(event);
+export default async function handler(req, res) {
+  if (req.method === 'GET') {
+    return handleGet(req, res);
+  } else if (req.method === 'POST') {
+    return handlePost(req, res);
   } else {
-    return {
-      statusCode: 405,
-      body: JSON.stringify({ error: 'Método no permitido' }),
-    };
+    res.setHeader('Allow', ['GET', 'POST']);
+    res.status(405).end(`Method ${req.method} Not Allowed`);
   }
 }
 
-function getBoletos() {
+async function handleGet(req, res) {
   try {
-    const data = readFileSync(boletosFilePath, { encoding: 'utf8' });
+    const data = await fs.readFile(boletosFilePath, { encoding: 'utf8' });
     const boletosData = JSON.parse(data);
 
-    return {
-      statusCode: 200,
-      body: JSON.stringify({ boletos: boletosData.boletos }),
-    };
+    res.status(200).json({ boletos: boletosData.boletos });
   } catch (error) {
     console.error('Error en GET:', error);
-    return {
-      statusCode: 500,
-      body: JSON.stringify({ error: 'Hubo un error en la solicitud GET' }),
-    };
+    res.status(500).json({ error: 'Hubo un error en la solicitud GET' });
   }
 }
 
-async function postBoletos(event) {
+async function handlePost(req, res) {
   try {
-    const formData = JSON.parse(event.body);
+    const formData = await parseFormData(req);
     const boletosSeleccionados = [];
 
-    for (const value of formData) {
+    for (const value of formData.values()) {
       boletosSeleccionados.push(parseInt(value));
     }
 
-    const data = readFileSync(boletosFilePath, { encoding: 'utf8' });
+    const data = await fs.readFile(boletosFilePath, { encoding: 'utf8' });
     const boletosData = JSON.parse(data);
 
     boletosData.boletos.forEach((boleto) => {
@@ -55,17 +47,19 @@ async function postBoletos(event) {
       }
     });
 
-    writeFileSync(boletosFilePath, JSON.stringify(boletosData, null, 2));
+    await fs.writeFile(boletosFilePath, JSON.stringify(boletosData, null, 2));
 
-    return {
-      statusCode: 200,
-      body: JSON.stringify({ message: 'Boletos actualizados' }),
-    };
+    res.status(200).json({ message: 'Boletos actualizados' });
   } catch (error) {
     console.error('Error en POST:', error);
-    return {
-      statusCode: 500,
-      body: JSON.stringify({ error: error.message || 'Hubo un error en la solicitud POST' }),
-    };
+    res.status(500).json({ error: error.message || 'Hubo un error en la solicitud POST' });
   }
+}
+
+async function parseFormData(req) {
+  const contentType = req.headers['content-type'];
+  if (!contentType || !contentType.includes('multipart/form-data')) {
+    throw new Error('Content-Type incorrecto o faltante, se esperaba multipart/form-data');
+  }
+  return req.body;
 }
