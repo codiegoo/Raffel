@@ -13,7 +13,13 @@ export async function GET() {
 
     // Retornar los boletos en la respuesta como JSON
     return new Response(
-      boletos
+      {
+        statusCode: 200,
+        body: JSON.stringify({ boletos: boletosData.boletos }),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }
     )
   } catch (error) {
     console.error('Error en GET:', error);
