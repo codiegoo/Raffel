@@ -1,65 +1,67 @@
 import fs from 'fs/promises';
-import path from 'path';
+import path from 'path'
 
-const boletosFilePath = path.join(process.cwd(), 'data/boletos.json');
 
-export default async function handler(req, res) {
-  if (req.method === 'GET') {
-    return handleGet(req, res);
-  } else if (req.method === 'POST') {
-    return handlePost(req, res);
-  } else {
-    res.setHeader('Allow', ['GET', 'POST']);
-    res.status(405).end(`Method ${req.method} Not Allowed`);
-  }
-}
+const boletosFilePath = path.join('./data/boletos.json')
 
-async function handleGet(req, res) {
+export async function GET() {
   try {
+    // Leer el archivo de boletos de manera asíncrona utilizando fs.promises.readFile
     const data = await fs.readFile(boletosFilePath, { encoding: 'utf8' });
     const boletosData = JSON.parse(data);
 
-    res.status(200).json({ boletos: boletosData.boletos });
+    // Retornar los boletos en la respuesta como JSON
+    return new Response(
+      JSON.stringify({
+        boletos: boletosData.boletos
+      })
+    )
   } catch (error) {
     console.error('Error en GET:', error);
-    res.status(500).json({ error: 'Hubo un error en la solicitud GET' });
+    // Retornar una respuesta de error
+    return new Response({ error: 'Hubo un error en la solicitud GET' })
   }
 }
 
-async function handlePost(req, res) {
+export async function POST(request) {
   try {
-    const formData = await parseFormData(req);
+    // Obtener los boletos seleccionados del cuerpo de la solicitud
+    const formData = await request.formData();
+    console.log(formData)
     const boletosSeleccionados = [];
 
-    for (const value of formData.values()) {
-      boletosSeleccionados.push(parseInt(value));
-    }
 
+    for (const value of formData.values()) {
+      boletosSeleccionados.push(parseInt(value)); // Parsear a entero si es necesario
+    }
+    console.log({message:"boletos seleccionados: ", boletosSeleccionados})
+    // for (const entry of formData.entries()) {
+    //   boletosSeleccionados.push(parseInt(entry[1])); // Parsear a entero si es necesario
+    // }
+
+    // Leer el archivo de boletos de manera asíncrona utilizando fs.promises.readFile
     const data = await fs.readFile(boletosFilePath, { encoding: 'utf8' });
     const boletosData = JSON.parse(data);
 
+    // Modificar los boletos seleccionados
     boletosData.boletos.forEach((boleto) => {
       if (boletosSeleccionados.includes(boleto.numero)) {
         if (!boleto.disponible) {
-          boleto.numero = 'Comprado';
+          boleto.numero = 'Comprado'; // Cambia el número por el texto cuando no está disponible
         }
-        boleto.disponible = false;
+        boleto.disponible = false; // Marca como no disponible
       }
     });
 
+    // Escribir de vuelta los datos al archivo de manera asíncrona utilizando fs.promises.writeFile
     await fs.writeFile(boletosFilePath, JSON.stringify(boletosData, null, 2));
 
-    res.status(200).json({ message: 'Boletos actualizados' });
+    // Construir la respuesta exitosa
+    return new Response(JSON.stringify("Boletos actualizados"));
+
   } catch (error) {
     console.error('Error en POST:', error);
-    res.status(500).json({ error: error.message || 'Hubo un error en la solicitud POST' });
+    // Retornar una respuesta de error
+    return new Response({ error: error });
   }
-}
-
-async function parseFormData(req) {
-  const contentType = req.headers['content-type'];
-  if (!contentType || !contentType.includes('multipart/form-data')) {
-    throw new Error('Content-Type incorrecto o faltante, se esperaba multipart/form-data');
-  }
-  return req.body;
 }

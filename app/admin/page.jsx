@@ -52,28 +52,37 @@ export default function AdminPanelContent() {
     fetch('/api/boletos')
       .then(response => {
         if (response.ok) {
-          return response.json();
+          return response.json(); // Aquí se espera recibir una respuesta JSON válida
         }
         throw new Error('Error al cargar los boletos');
       })
       .then(data => {
+        // Mapea los boletos para cambiar el número por el texto cuando no está disponible
         const boletosActualizados = data.boletos.map(boleto => ({
           ...boleto,
           numero: boleto.disponible ? boleto.numero : 'Comprado'
         }));
-        setBoletos(boletosActualizados);
+        setBoletos(boletosActualizados); // Establece los boletos actualizados en el estado
       })
       .catch(error => {
         console.error('Error en fetchBoletos:', error);
       });
   };
 
+  useEffect(() => {
+    fetchBoletos();
+  }, []); // El arreglo vacío indica que se ejecuta solo al montar el componente
+
+
   const handleDesactivarBoletos = () => {
     const formData = new FormData();
-
+  
+    // Agregar cada número de boleto seleccionado al FormData
     boletosSeleccionados.forEach(numero => {
-      formData.append('numeroBoleto', numero.toString());
+      formData.append('',numero);
     });
+
+    console.log({message: "formulario de datos", formData})
 
     fetch('/api/boletos', {
       method: 'POST',

@@ -38,17 +38,17 @@
     {
       "id": 8,
       "numero": 8,
-      "disponible": true
+      "disponible": false
     },
     {
       "id": 9,
       "numero": 9,
-      "disponible": true
+      "disponible": false
     },
     {
       "id": 10,
       "numero": 10,
-      "disponible": true
+      "disponible": false
     },
     {
       "id": 11,
