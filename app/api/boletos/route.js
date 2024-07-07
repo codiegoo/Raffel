@@ -13,12 +13,18 @@ export async function GET() {
 
     // Retornar los boletos en la respuesta como JSON
 
-    return new Response(boletos);
+    return {
+      status: 200,
+      body: boletos
+    }
 
   } catch (error) {
     console.error('Error en GET:', error);
     // Retornar una respuesta de error
-    return new Response(JSON.stringify({ error: 'Hubo un error en la solicitud GET' }, error ));
+    return {
+      status: 500,
+      body: { error: 'Hubo un error en la solicitud GET' }
+    };
   }
 }
 
@@ -55,17 +61,18 @@ export async function POST(request) {
     // Escribir de vuelta los datos al archivo de manera asíncrona utilizando fs.promises.writeFile
     await fs.writeFile(boletosFilePath, JSON.stringify(boletosData, null, 2));
 
-    return new Response(JSON.stringify({ message: 'Boletos actualizados' }), {
-      headers: { 'Content-Type': 'application/json' },
+    // Construir la respuesta exitosa
+    return {
       status: 200,
-    });
+      body: { message: 'Boletos actualizados' }
+    }
 
   } catch (error) {
     console.error('Error en POST:', error);
     // Retornar una respuesta de error
-    return new Response(JSON.stringify({ error: error.message || 'Hubo un error en la solicitud POST' }), {
-      headers: { 'Content-Type': 'application/json' },
+    return {
       status: 500,
-    });
+      body: { error: error.message || 'Hubo un error en la solicitud POST' }
+    };
   }
 }
