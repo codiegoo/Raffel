@@ -9,12 +9,11 @@ export async function GET() {
     // Leer el archivo de boletos de manera asíncrona utilizando fs.promises.readFile
     const data = await fs.readFile(boletosFilePath, { encoding: 'utf8' });
     const boletosData = JSON.parse(data);
+    const boletos = JSON.stringify(boletosData)
 
     // Retornar los boletos en la respuesta como JSON
     return new Response(
-      JSON.stringify({
-        boletos: boletosData.boletos
-      })
+      boletos
     )
   } catch (error) {
     console.error('Error en GET:', error);
