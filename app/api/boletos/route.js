@@ -13,18 +13,12 @@ export async function GET() {
 
     // Retornar los boletos en la respuesta como JSON
 
-    return new Response(boletos, {
-      headers: { 'Content-Type': 'application/json' },
-      status: 200,
-    });
+    return new Response(boletos);
 
   } catch (error) {
     console.error('Error en GET:', error);
     // Retornar una respuesta de error
-    return new Response(JSON.stringify({ error: 'Hubo un error en la solicitud GET' }), {
-      headers: { 'Content-Type': 'application/json' },
-      status: 500,
-    });
+    return new Response(JSON.stringify({ error: 'Hubo un error en la solicitud GET' }, error ));
   }
 }
 
