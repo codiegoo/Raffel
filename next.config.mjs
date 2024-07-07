@@ -1,8 +1,7 @@
 import { config as dotenvConfig } from 'dotenv';
-import { join } from 'path';
 
 // Cargar variables de entorno de un archivo .env
-dotenvConfig({ path: join(__dirname, '.env') });
+dotenvConfig('./.env');
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {

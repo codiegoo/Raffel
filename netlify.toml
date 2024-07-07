@@ -1,7 +1,3 @@
-[build]
-  command = "npm run build"
-  publish = "app"  # Directorio principal de la aplicación Next.js
-
 [functions.getTickets]
   path = "functions/getTickets.js"
   [functions.getTickets.environment]
