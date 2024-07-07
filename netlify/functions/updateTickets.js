@@ -20,18 +20,18 @@ export async function handler(event, context) {
 
         await fs.writeFile(boletosFilePath, JSON.stringify(boletosData, null, 2));
 
-        return {
+        return new Response({
             statusCode: 200,
             body: JSON.stringify({ message: 'Boletos actualizados correctamente' }),
             headers: {
                 'Content-Type': 'application/json'
             }
-        };
+        });
     } catch (error) {
         console.error('Error en POST:', error);
-        return {
+        return new Response({
             statusCode: 500,
             body: JSON.stringify({ error: 'Hubo un error en la solicitud POST' })
-        };
+        });
     }
 }
