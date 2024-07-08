@@ -1,32 +1,30 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import './luckyMachine.sass';
 import Form from '@/components/Form/Form';
 import confetti from 'canvas-confetti';
-import boletosData from '@/data/boletos.json'; // Ajusta la ruta según donde esté tu archivo JSON
 import Link from 'next/link';
 
-export default function LuckyMachine({setShowLuckyMachine}) {
+export default function LuckyMachine({ boletos, setShowLuckyMachine }) {
   const [generatedTickets, setGeneratedTickets] = useState([]);
   const [showForm, setShowForm] = useState(false);
-
+  const [ticketCount, setTicketCount] = useState(1); // Estado para el número de boletos a generar
 
   const handleSubmit = (event) => {
-    event.preventDefault(event);
+    event.preventDefault();
   };
 
   const handleChange = (event) => {
-    event.target.value;
+    setTicketCount(parseInt(event.target.value)); // Actualizar el estado del número de boletos a generar
   };
 
   const handleClickForm = (event) => {
     event.preventDefault();
-    setShowForm(true)
-  }
+    setShowForm(true);
+  };
 
   const handleImageClick = () => {
-    const selectValue = document.getElementById('ticketCount').value;
-    generateTickets(parseInt(selectValue));
+    generateTickets(ticketCount); // Llamar a generateTickets con el número seleccionado de boletos
     fireConfetti();
   };
 
@@ -35,7 +33,7 @@ export default function LuckyMachine({setShowLuckyMachine}) {
   };
 
   const generateTickets = (count) => {
-    const availableTickets = boletosData.boletos.filter(boleto => boleto.disponible);
+    const availableTickets = boletos.filter(boleto => boleto.disponible);
     const numTicketsToGenerate = Math.min(count, availableTickets.length);
 
     const tickets = [];
@@ -78,8 +76,8 @@ export default function LuckyMachine({setShowLuckyMachine}) {
     <div className="luckyMachineContain">
       <form className='luckyContain' onSubmit={handleSubmit}>
         <h2>🎰 MAQUINITA DE LA SUERTE 🎰</h2>
-        <select id="ticketCount" className="menuStripContain form-select" aria-label="Default select example" onChange={handleChange} name="ticketCount">
-          <option defaultValue>🎉 Elige la cantidad de boletos a generar ☘️</option>
+        <select id="ticketCount" className="menuStripContain form-select" aria-label="Default select example" onChange={handleChange} name="ticketCount" value={ticketCount}>
+          <option disabled>🎉 Elige la cantidad de boletos a generar ☘️</option>
           <option value="1">🎰 generar 1 boleto 🎟️</option>
           <option value="3">🎰 generar 3 boletos 🎟️</option>
           <option value="5">🎰 generar 5 boletos 🎟️</option>
@@ -105,7 +103,7 @@ export default function LuckyMachine({setShowLuckyMachine}) {
           </div>
         </div>
       </form>
-      <Link href="" className="btnApartarTickets" onClick={handleClickForm}>🎉 Apartar 🎉</Link>
+      <Link href="#" className="btnApartarTickets" onClick={handleClickForm}>🎉 Apartar 🎉</Link>
       {showForm && <Form boletosSeleccionados={generatedTickets} setShowForm={setShowForm}/>}
       <button type="button" className="btnCloseLuckyMachine" onClick={handleClose}>x</button>
     </div>

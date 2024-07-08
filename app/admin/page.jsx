@@ -54,12 +54,13 @@ export default function AdminPanelContent() {
       if (!response.ok) {
         throw new Error('Error al cargar los boletos');
       }
+  
       const data = await response.json();
   
-      // Mapea los boletos para cambiar el número por el texto cuando no está disponible
-      const boletosActualizados = data.boletos.map(boleto => ({
+      // Verifica que data[0].boletos exista antes de mapear
+      const boletosActualizados = data.boletos[0].boletos.map(boleto => ({
         ...boleto,
-        numero: boleto.disponible ? boleto.numero : 'Comprado'
+        numero: boleto.disponible ? boleto.numero : '❌'
       }));
   
       setBoletos(boletosActualizados); // Establece los boletos actualizados en el estado
@@ -67,6 +68,7 @@ export default function AdminPanelContent() {
       console.error('Error en fetchBoletos:', error);
     }
   };
+  
   
   const handleDesactivarBoletos = async () => {
     try {
@@ -84,8 +86,9 @@ export default function AdminPanelContent() {
         throw new Error('Error al desactivar boletos');
       }
   
+      // Después de desactivar exitosamente, volvemos a cargar los boletos actualizados
       await fetchBoletos();
-      setBoletosSeleccionados([]);
+      setBoletosSeleccionados([]); // Limpiamos los boletos seleccionados después de desactivar
       console.log('Boletos desactivados correctamente');
     } catch (error) {
       console.error('Error en handleDesactivarBoletos:', error);

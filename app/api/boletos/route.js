@@ -1,15 +1,14 @@
 import { NextResponse } from 'next/server';
-import fs from 'fs/promises';
-const boletosFilePath = './data/boletos.json'
+import { getBoletos, putBoletos } from '@/utils/dbFunctions';
 
-export async function GET() {
+
+export async function GET(request) {
   try {
-    // Leer el archivo de boletos de manera asíncrona utilizando fs.promises.readFile
-    const data = await fs.readFile(boletosFilePath, { encoding: 'utf8' });
-    const boletosData = JSON.parse(data);
+    
+    const boletos = await getBoletos()
 
     // Retornar los boletos en la respuesta como JSON utilizando NextResponse
-    return NextResponse.json({ boletos: boletosData.boletos });
+    return NextResponse.json({boletos});
   } catch (error) {
     console.error('Error en GET:', error);
     // Retornar una respuesta de error utilizando NextResponse
@@ -23,28 +22,12 @@ export async function POST(request) {
     const formData = await request.formData();
     const boletosSeleccionados = [];
 
-
     for (const value of formData.values()) {
       boletosSeleccionados.push(parseInt(value)); // Parsear a entero si es necesario
     }
 
 
-    // Leer el archivo de boletos de manera asíncrona utilizando fs.promises.readFile
-    const data = await fs.readFile(boletosFilePath, { encoding: 'utf8' });
-    const boletosData = JSON.parse(data);
-
-    // Modificar los boletos seleccionados
-    boletosData.boletos.forEach((boleto) => {
-      if (boletosSeleccionados.includes(boleto.numero)) {
-        if (!boleto.disponible) {
-          boleto.numero = 'Comprado'; // Cambia el número por el texto cuando no está disponible
-        }
-        boleto.disponible = false; // Marca como no disponible
-      }
-    });
-
-    // Escribir de vuelta los datos al archivo de manera asíncrona utilizando fs.promises.writeFile
-    await fs.writeFile(boletosFilePath, JSON.stringify(boletosData, null, 2));
+    await putBoletos(boletosSeleccionados)
 
     // Construir la respuesta exitosa
     return NextResponse.json('Boletos actualizados');
