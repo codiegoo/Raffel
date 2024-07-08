@@ -7,13 +7,13 @@ export default function Carousel() {
     <div id="carouselExampleInterval" className="carousel slide mt-5" data-bs-ride="carousel">
       <div className="carousel-inner">
         <div className="carousel-item active" data-bs-interval="4000">
-          <Image width={1920} height={1080} src="/images/auto.png" className="d-block w-100" style={{ height: 'auto', objectFit: 'contain' }} alt="First slide iphone 15 pro max 256gb sorteos jp" />
+          <Image priority={true} width={1920} height={1080} src="/images/auto.png" className="d-block w-100" style={{ width: "auto", height: 'auto', objectFit: 'contain' }} alt="First slide iphone 15 pro max 256gb sorteos jp" />
         </div>
         <div className="carousel-item" data-bs-interval="4000">
-          <Image width={1920} height={1080} src="/images/auto1.jpg" className="d-block w-100" style={{ height: 'auto', objectFit: 'contain' }} alt="Second slide iphone 15 pro max 256gb sorteos jp" />
+          <Image priority={true} width={1920} height={1080} src="/images/auto1.jpg" className="d-block w-100" style={{ width: "auto", height: 'auto', objectFit: 'contain' }} alt="Second slide iphone 15 pro max 256gb sorteos jp" />
         </div>
         <div className="carousel-item" data-bs-interval="4000">
-          <Image width={1920} height={1080} src="/images/auto2.jpg" className="d-block w-100" style={{ height: 'auto', objectFit: 'contain' }} alt="Third slide iphone 15 pro max 256gb sorteos jp" />
+          <Image priority={true} width={1920} height={1080} src="/images/auto2.jpg" className="d-block w-100" style={{ width: "auto", height: 'auto', objectFit: 'contain' }} alt="Third slide iphone 15 pro max 256gb sorteos jp" />
         </div>
       </div>
       <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">

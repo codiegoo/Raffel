@@ -18,7 +18,7 @@ export default function Pagos() {
                         <Image src="/images/visa.png" width={50} height={25} alt="Imagen de logo de visa de tarjeta de credito de sorteos jp"></Image>
                     </div>
                     <div className="card-no">
-                        <p style={{ userSelect: 'none' }}>5244 2150 8252 6420</p>
+                      <div unselectable="on" className="card-number">5244 2150 8252 6420</div>
                     </div>
                     <div className="nameContain">
                       <p>Nombre Nombre Apellido Apellido</p>
@@ -35,7 +35,7 @@ export default function Pagos() {
                         <Image src="/images/visa.png" width={50} height={25} alt="Imagen de logo de visa de tarjeta de credito de sorteos jp"></Image>
                     </div>
                     <div className="card-no">
-                      <p style={{ userSelect: 'none' }}>5244 2150 8252 6420</p>
+                      <div unselectable="on" className="card-number">5244 2150 8252 6420</div>
                     </div>
                     <div className="nameContain">
                       <p>Nombre Nombre Apellido Apellido</p>
