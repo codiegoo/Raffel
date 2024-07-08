@@ -34,35 +34,37 @@ export default function Form({ boletosSeleccionados, setShowForm}) {
 
 
   return (
-    <form className="formContain" onSubmit={handleSubmit}>
-      <div className="inputContain">
-        <label htmlFor="userName">Nombre completo:</label>
-        <input type="text" id="userName" name="userName" placeholder="nombre(s), primer apellido, segundo apellido" />
-      </div>
+    <div className="formBackground">
+      <form className="formContain" onSubmit={handleSubmit}>
+        <div className="inputContain">
+          <label htmlFor="userName">Nombre completo:</label>
+          <input type="text" id="userName" name="userName" placeholder="nombre(s), primer apellido, segundo apellido" />
+        </div>
 
-      <div className="inputContain">
-        <label htmlFor="userNumber">Whatsapp:</label>
-        <input type="number" id="userNumber" name="userNumber" placeholder="Ejemplo: 6871020304" />
-      </div>
+        <div className="inputContain">
+          <label htmlFor="userNumber">Whatsapp:</label>
+          <input type="number" id="userNumber" name="userNumber" placeholder="Ejemplo: 6871020304" />
+        </div>
 
-      <div className="boletosClienteContain">
-        <h6>Tus boletos:</h6>
-        <div className="boletosListGrid mb-2 row row-cols-4 row-cols-md-4 row-cols-lg-4">
-          {/* Mostrar los boletos seleccionados */}
-          {boletosSeleccionados.map((numeroBoleto) => (
-            <div key={numeroBoleto} className="col mb-2 px-1">
-              <div className="card h-100 bg-dark">
-                <div className="card-body text-center">
-                  <h5 className="card-title text-white">🎟️ {numeroBoleto}</h5>
+        <div className="boletosClienteContain">
+          <h6>Tus boletos:</h6>
+          <div className="boletosListGrid mb-2 row row-cols-4 row-cols-md-4 row-cols-lg-4">
+            {/* Mostrar los boletos seleccionados */}
+            {boletosSeleccionados.map((numeroBoleto) => (
+              <div key={numeroBoleto} className="col mb-2 px-1">
+                <div className="card h-100 bg-dark">
+                  <div className="card-body text-center">
+                    <h5 className="card-title text-white">🎟️ {numeroBoleto}</h5>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
-      
-      <button type="submit" className="btnApartarForm">🎉 Apartar 🎉</button>
-      <button type="button" className="btnCloseForm" onClick={handleClose}>x</button>
-    </form>
+        
+        <button type="submit" className="btnApartarForm">🎉 Apartar 🎉</button>
+        <button type="button" className="btnCloseForm" onClick={handleClose}>x</button>
+      </form>
+    </div>
   );
 }
