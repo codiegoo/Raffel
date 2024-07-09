@@ -188,7 +188,7 @@ export default function AdminPanelContent() {
         </div>
       </div>
 
-      <Sorteo/>
+      <Sorteo boletos={boletos}/>
     </div>
   );
 }

@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import confetti from 'canvas-confetti';
-import boletosData from '@/data/boletos.json';
 import './sorteo.sass'
 
-const Sorteo = React.forwardRef((props, ref) => {
+const Sorteo = React.forwardRef((boletos, ref) => {
   const [generatedTicket, setGeneratedTicket] = useState(null); // Cambiado a un solo boleto ganador en estado
   
 
@@ -18,11 +17,11 @@ const Sorteo = React.forwardRef((props, ref) => {
   };
 
   const generateWinner = () => {
-    const availableTickets = boletosData.boletos.filter(boleto => !boleto.disponible); // Filtrar los boletos no disponibles
+    const availableTickets = boletos.boletos.filter(boleto => !boleto.disponible);
 
     if (availableTickets.length > 0) {
       const randomIndex = Math.floor(Math.random() * availableTickets.length);
-      const ticketNumber = availableTickets[randomIndex].numero;
+      const ticketNumber = availableTickets[randomIndex].id;
       setGeneratedTicket(ticketNumber);
     } else {
       setGeneratedTicket(null); // Manejo de caso donde no hay boletos disponibles
