@@ -93,6 +93,10 @@ export default function Boletos() {
           <p>✨ Si eliges un numero de boletos que no aplique en ninguna promo los boletos se cobraran por unidad. ✅​</p>
           <p>✨ Si quieres comprar mas de 5 boletos y recibir una promocion contactanos antes de apartar tus boletos. ✅​</p>
         </div>
+        <div className="bonoContain">
+          <h3>BONO EXTRA</h3>
+          <p>🥳 Si resultas gandor del primer lugar y seguiste la pagina antes del sorteo te llevas 💸 5,000 pesos extras! 🎉</p>
+        </div>
       </div>
 
       <div id="boletosContain" className="searchSelectContain">

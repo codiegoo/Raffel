@@ -21,9 +21,9 @@ export default function Form({ boletosSeleccionados, setShowForm}) {
 
   // Función para enviar mensaje a WhatsApp
   const enviarMensajeWhatsApp = (nombre, numeroWhatsApp, boletos) => {
-    const mensaje = `Hola, soy ${nombre}. Quiero apartar los siguientes boletos: ${boletos.join(', ')}. Al siguiente numero: ${numeroWhatsApp}`; // Mensaje a enviar
+    const mensaje = `Hola, quiero apartar los siguientes boletos: ${boletos.join(', ')}. Al nombre de ${nombre} y al siguiente numero: ${numeroWhatsApp}`; // Mensaje a enviar
 
-    const numeroDestino = '6871403223'; // Número de WhatsApp al que enviar el mensaje
+    const numeroDestino = '6871406011'; // Número de WhatsApp al que enviar el mensaje
 
     // Crear el enlace para abrir WhatsApp con el mensaje y el número de destino
     const url = `https://wa.me/${numeroDestino}?text=${encodeURIComponent(mensaje)}`;
