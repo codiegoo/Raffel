@@ -95,7 +95,7 @@ export default function Boletos() {
         </div>
         <div className="bonoContain">
           <h3>BONO EXTRA</h3>
-          <p>🥳 Si resultas gandor del primer lugar y seguiste la pagina antes del sorteo te llevas 💸 5,000 pesos extras! 🎉</p>
+          <p>🥳 Si resultas gandor del primer lugar y compartiste la publicacion del sorteo antes de la fecha indicada te llevas 💸 5,000 pesos extras! 🎉</p>
         </div>
       </div>
 
