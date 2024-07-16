@@ -30,7 +30,7 @@ export async function putBoletos(boletosSeleccionados) {
     for (let i = 0; i < boletos.length; i++) {
       if (boletosSeleccionados.includes(boletos[i].numero)) {
         boletos[i].disponible = false; // Marcar como no disponible
-        boletos[i].numero = ''; // Poner el número en 0
+        boletos[i].numero = 0; // Poner el número en 0
       }
     }
 

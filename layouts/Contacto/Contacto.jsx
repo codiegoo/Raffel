@@ -15,10 +15,10 @@ export default function Contacto() {
         <div className="redesContain">
           <h3>REDES:</h3>
           <div className="redesInner">
-            <Link href=""><Facebook size={30} color="dark"/><p>Facebook</p></Link>
+            <Link href="https://www.facebook.com/profile.php?id=61562258850072&mibextid=LQQJ4d"><Facebook size={30} color="dark"/><p>Facebook</p></Link>
           </div>
           <div className="redesInner">
-            <Link href=""><Whatsapp size={30}/><p>Whatsapp</p></Link>
+            <Link href="https://wa.me/6871406011"><Whatsapp size={30}/><p>Whatsapp</p></Link>
           </div>
           <div className="redesInner">
             <Link href=""><Instagram size={30}/><p>Instagram</p></Link>
