@@ -14,7 +14,7 @@ export default function Pagos() {
                 <div className="front">
                     <Image width={500} height={300} src="/images/map.png" className="map-img" alt="Imagen de mapa mundial de tarjeta de credito de sorteos jp"></Image>
                     <div className="row">
-                        <Image src="/images/chip.png" width={60} height={40} alt="Imagen de chip de tarjeta de credito de sorteos jp"></Image>
+                      
                     </div>
                     <div className="card-no">
                       <div unselectable="on" className="card-number">4169  1614  3344  1028</div>
