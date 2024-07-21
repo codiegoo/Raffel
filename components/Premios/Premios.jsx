@@ -4,7 +4,7 @@ export default function Premios() {
   return (
     <div className="premiosContainer">
       <div className="animationText">
-        <span>💯¡3 lugares!🥳​  🥇¡animate y llevate ese Iphone!📱</span>
+        <span>💯¡3 lugares!🥳​  🥇¡Anímate y llevate ese Iphone!📱</span>
         <span>⚠️¡Mucha mas probabilidad de ganar!🎟️ ⭐¡bonos extras!💸</span>
       </div>
       <div id="premiosContain" className="txtPremiosContain d-flex flex-row justify-content-between align-items-center">
@@ -14,7 +14,7 @@ export default function Premios() {
       </div>
       <div className="animationText">
         <span>⚠️¡solo 600 boletos!🎟️ ⭐¡bonos extras!💸</span>
-        <span>🥇¡animate y llevate ese Iphone!📱 ⚠️¡Mucha mas probabilidad de ganar!🎟️</span>
+        <span>🥇¡Anímate y llevate ese Iphone!📱 ⚠️¡Mucha mas probabilidad de ganar!🎟️</span>
       </div>
     </div>
   );

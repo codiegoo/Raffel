@@ -85,13 +85,13 @@ export default function Boletos() {
         </div>
         <div className="infoSorteoContain">
           <h2>INFORMACION</h2>
-          <p>Nuestros sorteos son basados en ruletita de la suerte 🍀 anímate y se uno de nuestros ganadores 🎖️, todo nuestros sorteos se realizarán en vivo a través de Facebook.✅​</p>
+          <p>Nuestros sorteos están basados en la ruleta de la suerte 🍀. Anímate y sé uno de nuestros ganadores 🎖️. Todos nuestros sorteos se realizarán en vivo a través de Facebook. ✅​</p>
           <h3>NOTAS</h3>
-          <p>✨ Si eres ganador de un premio aun participas por los demas. ✅​</p>
-          <p>✨ La rifa se llevara acabo una vez vendidos los boletos disponibles. ✅​</p>
-          <p>✨ Paga tus boletos en el momento que los apartas ya que puede que te lo ganen. ✅​</p>
-          <p>✨ Si eliges un numero de boletos que no aplique en ninguna promo los boletos se cobraran por unidad. ✅​</p>
-          <p>✨ Si quieres comprar mas de 5 boletos y recibir una promocion contactanos antes de apartar tus boletos. ✅​</p>
+          <p>✨ Si eres ganador de un premio, aún participas por los demás. ✅​</p>
+          <p>✨ La rifa se llevará a cabo una vez vendidos los boletos disponibles. ✅​</p>
+          <p>✨ Paga tus boletos en el momento en que los apartas, ya que podrían ganártelos. ✅​</p>
+          <p>✨ Si eliges un número de boletos que no aplique en ninguna promoción, los boletos se cobrarán por unidad. ✅​</p>
+          <p>✨ Si quieres comprar más de 5 boletos y recibir una promoción, contáctanos antes de apartar tus boletos. ✅​</p>
         </div>
         <div className="bonoContain">
           <h3>BONO EXTRA</h3>
