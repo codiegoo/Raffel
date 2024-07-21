@@ -10,7 +10,7 @@ const Login = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     // Verificar credenciales
-    if (userName === 'sorteosjp' && userNumber === '1234') {
+    if (userName === 'sorteosjp' && userNumber === '.Sorteosjp') {
       setLoggedIn(true); // Marcar como logueado si las credenciales son correctas
     } else {
       alert('Credenciales incorrectas');
