@@ -1,5 +1,4 @@
 import { Facebook, Whatsapp, Instagram } from 'react-bootstrap-icons'
-
 import Link from 'next/link'
 import './contacto.sass'
 

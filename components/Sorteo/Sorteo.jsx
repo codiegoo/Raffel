@@ -1,11 +1,34 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import confetti from 'canvas-confetti';
-import './sorteo.sass'
+import './sorteo.sass';
 
 const Sorteo = React.forwardRef((boletos, ref) => {
-  const [generatedTicket, setGeneratedTicket] = useState(null); // Cambiado a un solo boleto ganador en estado
-  
+  const [generatedTicket, setGeneratedTicket] = useState(null); // Boleto ganador final
+  const [displayNumber, setDisplayNumber] = useState(null); // Número mostrado en el boleto durante la animación
+  const [isAnimating, setIsAnimating] = useState(false); // Controla si la animación está en curso
+
+  useEffect(() => {
+    if (isAnimating) {
+      const duration = 10; // Duración de la animación en segundos
+      const totalSteps = 11; // Número total de pasos (del 10 al 0)
+      const stepDuration = (duration * 1000) / (totalSteps - 1); // Intervalo de tiempo entre cada actualización
+
+      let currentStep = 10; // Comienza desde 10
+
+      const interval = setInterval(() => {
+        setDisplayNumber(currentStep);
+        currentStep -= 1;
+        
+        if (currentStep < 0) {
+          clearInterval(interval);
+          setDisplayNumber(generatedTicket); // Mostrar el número del boleto ganador final
+          setIsAnimating(false);
+          fireConfetti(); // Activar el confeti después de mostrar el boleto ganador
+        }
+      }, stepDuration); // Actualiza el número cada `stepDuration` milisegundos
+    }
+  }, [isAnimating, generatedTicket]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -13,7 +36,6 @@ const Sorteo = React.forwardRef((boletos, ref) => {
 
   const handleImageClick = () => {
     generateWinner();
-    fireConfetti();
   };
 
   const generateWinner = () => {
@@ -23,8 +45,12 @@ const Sorteo = React.forwardRef((boletos, ref) => {
       const randomIndex = Math.floor(Math.random() * availableTickets.length);
       const ticketNumber = availableTickets[randomIndex].id;
       setGeneratedTicket(ticketNumber);
+      setDisplayNumber(null); // Limpiar el número mostrado antes de iniciar la animación
+      setIsAnimating(true);
     } else {
-      setGeneratedTicket(null); // Manejo de caso donde no hay boletos disponibles
+      setGeneratedTicket(null);
+      setDisplayNumber(null);
+      setIsAnimating(false);
     }
   };
 
@@ -53,25 +79,23 @@ const Sorteo = React.forwardRef((boletos, ref) => {
     <form ref={ref} className="luckyContain" onSubmit={handleSubmit}>
       <h2>🎰 RULETITA DE LA SUERTE 🎰</h2>
       <div className="imageContainer canvas-confetti-btn animate__animated confettiBtn" onClick={handleImageClick}>
-        <Image src="/images/maquinita.jpg" width={600} height={450} alt="Imagen de maquinita de la suerte de sorteos jp" priority={true}/>
+        <Image src="/images/maquinita.jpg" width={600} height={450} alt="Imagen de maquinita de la suerte de sorteos jp" priority={true} />
         <p>🤩 Click aquí para generar un boleto ganador! 🥳</p>
       </div>
 
       <div className="boletosGeneratedContain">
         <h6>🥳 El boleto ganador es: 🤩</h6>
-        {generatedTicket ? (
-          <div className="boletosGrid mb-2 row row-cols-2 row-cols-md-4 row-cols-lg-5">
-            <div className="col mb-2 px-1">
-              <div className="card h-100 bg-dark">
-                <div className="card-body text-center">
-                  <h5 className="card-title text-white">🎟️ {generatedTicket}</h5>
-                </div>
+        <div className="boletosGrid mb-2 row row-cols-2 row-cols-md-4 row-cols-lg-5">
+          <div className="col mb-2 px-1">
+            <div className="card h-100 bg-dark">
+              <div className="card-body text-center">
+                <h5 className="card-title text-white">
+                  🎟️ {displayNumber !== null ? displayNumber : '...' }
+                </h5>
               </div>
             </div>
           </div>
-        ) : (
-          <p></p>
-        )}
+        </div>
       </div>
     </form>
   );
