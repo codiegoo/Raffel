@@ -21,6 +21,7 @@ export default function Pagos() {
                     </div>
                     <div className="nameContain">
                       <p>Jhon Francisco Leon Iribe</p>
+                      <p>Banco: BanCoppel</p>
                     </div>
                 </div>
           </div>
