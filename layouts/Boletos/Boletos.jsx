@@ -76,27 +76,27 @@ export default function Boletos() {
     <section className="boletosContain">
       <div className="infoTxtContain">
         <div className="promosContain text-center">
-          <h2>PROMOS</h2>
+          <h2>PRECIOS</h2>
           <div className="promosCardsContain">
-            <div className="promosItem">💲190💲 1 🎟️</div>
-            <div className="promosItem">💲180💲 si nos sigues en fb</div>
-            <div className="promosItem">💲170💲 si compras 3 o mas 🎟️</div>
+            <div className="promosItem">1 🎟️ x 💲50</div>
+            <div className="promosItem">2 🎟️ x 💲100</div>
+            <div className="promosItem">3 🎟️ x 💲150</div>
           </div>
         </div>
         <div className="infoSorteoContain">
           <h2>INFORMACION</h2>
-          <p>Nuestros sorteos están basados en la ruleta de la suerte 🍀. Anímate y sé uno de nuestros ganadores 🎖️. Todos nuestros sorteos se realizarán en vivo a través de Facebook. ✅​</p>
+          <p>Nuestros sorteos están basados en la loteria nacional 🍀. Anímate y sé uno de nuestros ganadores 🎖️. Todos nuestros sorteos se realizarán en vivo a través de Facebook. ✅​</p>
           <h3>NOTAS</h3>
+          <p>✨ Los ganadores seran selecionados segun los ultimos 3 digitos de los boletos ganadores de la loteria. ✅​</p>
           <p>✨ Si eres ganador de un premio, aún participas por los demás. ✅​</p>
           <p>✨ La rifa se llevará a cabo una vez vendidos los boletos disponibles. ✅​</p>
           <p>✨ Paga tus boletos en el momento en que los apartas, ya que podrían ganártelos. ✅​</p>
-          <p>✨ Si eliges un número de boletos que no aplique en ninguna promoción, los boletos se cobrarán por unidad. ✅​</p>
           <p>✨ Si quieres comprar más de 5 boletos y recibir una promoción, contáctanos antes de apartar tus boletos. ✅​</p>
         </div>
-        <div className="bonoContain">
+        {/* <div className="bonoContain">
           <h3>BONO EXTRA</h3>
           <p>🥳 Si resultas gandor del primer lugar y compartiste la publicacion del sorteo antes de la fecha indicada te llevas 💸 5,000 pesos extras! 🎉</p>
-        </div>
+        </div> */}
       </div>
 
       <div id="boletosContain" className="searchSelectContain">

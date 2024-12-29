@@ -20,7 +20,7 @@ export default function Contacto() {
             <Link href="https://wa.me/6871406011"><Whatsapp size={30}/><p>Whatsapp</p></Link>
           </div>
           <div className="redesInner">
-            <Link href=""><Instagram size={30}/><p>Instagram</p></Link>
+            <Link href="https://www.instagram.com/sorteosjplosmochis?igsh=bDlwOXhkNTVldXUy"><Instagram size={30}/><p>Instagram</p></Link>
           </div>
         </div>
         </div>
