@@ -17,7 +17,7 @@ export default function Contacto() {
             <Link href="https://www.facebook.com/profile.php?id=61562258850072&mibextid=LQQJ4d"><Facebook size={30} color="dark"/><p>Facebook</p></Link>
           </div>
           <div className="redesInner">
-            <Link href="https://wa.me/6871406011"><Whatsapp size={30}/><p>Whatsapp</p></Link>
+            <Link href="https://wa.me/6871700532"><Whatsapp size={30}/><p>Whatsapp</p></Link>
           </div>
           <div className="redesInner">
             <Link href="https://www.instagram.com/sorteosjplosmochis?igsh=bDlwOXhkNTVldXUy"><Instagram size={30}/><p>Instagram</p></Link>

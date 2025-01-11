@@ -84,7 +84,7 @@ export default function LuckyMachine({ boletos, setShowLuckyMachine }) {
           <option value="10">🎰 generar 10 boletos 🎟️</option>
         </select>
         <div className="imageContainer canvas-confetti-btn animate__animated confettiBtn" onClick={handleImageClick}>
-          <Image src="/images/maquinita.jpg" width={600} height={450} alt="Imagen de maquinita de la suerte de sorteos jp" priority={true}/>
+          <Image src="/images/maquinita.jpg" width={400} height={250} alt="Imagen de maquinita de la suerte de sorteos jp" priority={true}/>
           <p>Click aquí para <br /> generar tus boletos!</p>
         </div>
 
