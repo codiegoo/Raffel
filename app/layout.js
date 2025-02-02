@@ -22,6 +22,7 @@ export default function RootLayout({ children }) {
         {/* Etiqueta meta para Open Graph con ruta relativa */}
         <meta property="og:image" content={metadata.ogImage} />
         {/* Otras etiquetas meta que necesites */}
+        <meta name="facebook-domain-verification" content="zdm34a265j0uckz3hqiwinpxpj1oa9" />
       </Head>
 
       <html lang="es">
