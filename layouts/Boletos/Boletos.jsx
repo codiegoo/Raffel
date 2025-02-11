@@ -91,12 +91,11 @@ export default function Boletos() {
           <p>✨ Si eres ganador de un premio, aún participas por los demás. ✅​</p>
           <p>✨ La rifa se llevará a cabo una vez vendidos los boletos disponibles. ✅​</p>
           <p>✨ Paga tus boletos en el momento en que los apartas, ya que podrían ganártelos. ✅​</p>
-          <p>✨ Si quieres comprar más de 5 boletos y recibir una promoción, contáctanos antes de apartar tus boletos. ✅​</p>
         </div>
-        {/* <div className="bonoContain">
+        <div className="bonoContain">
           <h3>BONO EXTRA</h3>
-          <p>🥳 Si resultas gandor del primer lugar y compartiste la publicacion del sorteo antes de la fecha indicada te llevas 💸 5,000 pesos extras! 🎉</p>
-        </div> */}
+          <p>🥳 Si resultas gandor del primer lugar y mandas una captura al chat de que compartiste la publicacion del sorteo antes de la fecha indicada te llevas 💸 500 pesos extras! 🎉</p>
+        </div>
       </div>
 
       <div id="boletosContain" className="searchSelectContain">
