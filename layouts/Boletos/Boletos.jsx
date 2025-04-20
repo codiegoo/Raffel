@@ -83,6 +83,10 @@ export default function Boletos() {
             <div className="promosItem">3 🎟️ x 💲150</div>
           </div>
         </div>
+        <div className="bonoContain">
+          <h3>Pre Sorteo</h3>
+          <p>🥳 En la compra de 1 boleto participas en el pre sorteo de 💸 1000 PESOS 💸 este 10 DE MAYO🤩</p>
+        </div>
         <div className="infoSorteoContain">
           <h2>INFORMACION</h2>
           <p>Nuestros sorteos están basados en la loteria nacional 🍀. Anímate y sé uno de nuestros ganadores 🎖️. Todos nuestros sorteos se realizarán en vivo a través de Facebook. ✅​</p>
